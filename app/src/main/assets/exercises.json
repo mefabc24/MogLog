@@ -1,0 +1,182 @@
+[
+  {
+    "id": "push_up",
+    "name": "Push Up",
+    "description": "Klassische Liegestütze für Brust, Schultern und Trizeps.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CHEST",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "bench_press",
+    "name": "Bench Press",
+    "description": "Bankdrücken mit Langhantel für Brustkraft.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CHEST",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "incline_dumbbell_press",
+    "name": "Incline Dumbbell Press",
+    "description": "Schrägbankdrücken mit Kurzhanteln.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CHEST",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "pull_up",
+    "name": "Pull Up",
+    "description": "Klimmzüge für Rücken und Bizeps.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "BACK",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "lat_pulldown",
+    "name": "Lat Pulldown",
+    "description": "Latzug an der Maschine.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "BACK",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "barbell_row",
+    "name": "Barbell Row",
+    "description": "Rudern mit der Langhantel.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "BACK",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "squat",
+    "name": "Squat",
+    "description": "Kniebeugen für Beine und Core.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "LEGS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "leg_press",
+    "name": "Leg Press",
+    "description": "Beinpresse an der Maschine.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "LEGS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "lunges",
+    "name": "Lunges",
+    "description": "Ausfallschritte für Beine und Gesäß.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "LEGS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "deadlift",
+    "name": "Deadlift",
+    "description": "Kreuzheben für Rücken und Beine.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "BACK",
+    "difficulty": "ADVANCED"
+  },
+  {
+    "id": "shoulder_press",
+    "name": "Shoulder Press",
+    "description": "Schulterdrücken mit Kurzhanteln oder Langhantel.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "SHOULDERS",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "lateral_raise",
+    "name": "Lateral Raise",
+    "description": "Seitheben für die Schultern.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "SHOULDERS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "front_raise",
+    "name": "Front Raise",
+    "description": "Frontheben für vordere Schulter.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "SHOULDERS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "bicep_curl",
+    "name": "Bicep Curl",
+    "description": "Bizepscurls mit Kurzhanteln.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "ARMS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "tricep_dips",
+    "name": "Tricep Dips",
+    "description": "Dips für den Trizeps.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "ARMS",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "tricep_pushdown",
+    "name": "Tricep Pushdown",
+    "description": "Trizepsdrücken am Kabel.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "ARMS",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "plank",
+    "name": "Plank",
+    "description": "Statische Übung für die Core-Muskulatur.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CORE",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "crunches",
+    "name": "Crunches",
+    "description": "Bauchübung für die geraden Bauchmuskeln.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CORE",
+    "difficulty": "BEGINNER"
+  },
+  {
+    "id": "leg_raise",
+    "name": "Leg Raise",
+    "description": "Beinheben für die unteren Bauchmuskeln.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CORE",
+    "difficulty": "INTERMEDIATE"
+  },
+  {
+    "id": "russian_twist",
+    "name": "Russian Twist",
+    "description": "Rotation für seitliche Bauchmuskeln.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleGroup": "CORE",
+    "difficulty": "INTERMEDIATE"
+  }
+]
