@@ -18,15 +18,21 @@ class ExerciseRepository(private val context: Context) {
 
     // Basic query operations
     fun getExercisesByMuscleRegion(muscleRegion: MuscleRegion): List<Exercise> {
-        return exercises.filter { it.muscleTarget.muscle.group.region == muscleRegion }
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle.group.region == muscleRegion }
+        }
     }
 
     fun getExercisesByMuscleGroup(muscleGroup: MuscleGroup): List<Exercise> {
-        return exercises.filter { it.muscleTarget.muscle.group == muscleGroup }
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle.group == muscleGroup }
+        }
     }
 
     fun getExercisesByMuscle(muscle: Muscle): List<Exercise> {
-        return exercises.filter { it.muscleTarget.muscle == muscle }
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle == muscle }
+        }
     }
 
     fun getExercisesByDifficulty(difficulty: Difficulty): List<Exercise> {
@@ -42,23 +48,20 @@ class ExerciseRepository(private val context: Context) {
     }
 
     fun getExercisesByMuscleRegionAndDifficulty(muscleRegion: MuscleRegion, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter {
-            it.muscleTarget.muscle.group.region == muscleRegion &&
-            it.difficulty == difficulty
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle.group.region == muscleRegion && exercise.difficulty == difficulty }
         }
     }
 
     fun getExercisesByMuscleGroupAndDifficulty(muscleGroup: MuscleGroup, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter {
-            it.muscleTarget.muscle.group == muscleGroup &&
-            it.difficulty == difficulty
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle.group == muscleGroup && exercise.difficulty == difficulty }
         }
     }
 
     fun getExercisesByMuscleAndDifficulty(muscle: Muscle, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter {
-            it.muscleTarget.muscle == muscle &&
-            it.difficulty == difficulty
+        return exercises.filter { exercise ->
+            exercise.muscleTarget.any { it.muscle == muscle && exercise.difficulty == difficulty }
         }
     }
 
