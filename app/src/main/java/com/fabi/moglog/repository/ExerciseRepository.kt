@@ -47,25 +47,6 @@ class ExerciseRepository(private val context: Context) {
         return exercises
     }
 
-    fun getExercisesByMuscleRegionAndDifficulty(muscleRegion: MuscleRegion, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter { exercise ->
-            exercise.muscleTarget.any { it.muscle.group.region == muscleRegion && exercise.difficulty == difficulty }
-        }
-    }
-
-    fun getExercisesByMuscleGroupAndDifficulty(muscleGroup: MuscleGroup, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter { exercise ->
-            exercise.muscleTarget.any { it.muscle.group == muscleGroup && exercise.difficulty == difficulty }
-        }
-    }
-
-    fun getExercisesByMuscleAndDifficulty(muscle: Muscle, difficulty: Difficulty): List<Exercise> {
-        return exercises.filter { exercise ->
-            exercise.muscleTarget.any { it.muscle == muscle && exercise.difficulty == difficulty }
-        }
-    }
-
-
     // Utility function to load exercises from JSON file
     fun loadExercises(context: Context): List<Exercise> {
         val json = context.assets.open("exercises.json")
