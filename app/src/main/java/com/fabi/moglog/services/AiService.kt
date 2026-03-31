@@ -8,12 +8,28 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 // Configurations
-private const val API_URL = "https://chat-ai.academiccloud.de/v1/chat/completions"
-private const val MODEL = "gemma-3-27b-it"
-private const val SYSTEM_PROMPT = "Du bist ein Fitness-Chatbot. Antworte kurz und hilfreich."
-private const val TEMPERATURE = 0.4
-private const val TOP_P = 0.8
-private const val MAX_TOKENS = 300
+private const val API_URL: String = "https://chat-ai.academiccloud.de/v1/chat/completions"
+private const val MODEL: String = "gemma-3-27b-it"
+private const val SYSTEM_PROMPT: String = "You are a helpful fitness chatbot."
+
+private val RESPONSE_SPECIFICATION = """
+    Respond in plain chat text with a maximum length of 300 characters.
+    No emojis, markdown, lists, or filler phrases.
+    Keep the answer concise, direct, and focused on essential information only.
+    Use the same language as the user's input.
+    Only respond to fitness-related questions.
+    If the request is not fitness-related, politely state that only fitness-related questions are supported and ask the user to provide a fitness-related question.
+""".trimIndent()
+
+private val SYSTEM_INSTRUCTIONS = """
+    Instructions:
+    $SYSTEM_PROMPT
+    $RESPONSE_SPECIFICATION
+""".trimIndent()
+
+private const val TEMPERATURE: Double = 0.4
+private const val TOP_P: Double = 0.8
+private const val MAX_TOKENS: Int = 300
 
 class AiService {
     private val client = OkHttpClient()
@@ -51,8 +67,8 @@ class AiService {
             put("top_p", TOP_P)
             put("max_tokens", MAX_TOKENS)
             put("messages", JSONArray().apply {
-                put(JSONObject().apply { put("role", "system"); put("content", SYSTEM_PROMPT) })
-                put(JSONObject().apply { put("role", "user");   put("content", message)       })
+                put(JSONObject().apply { put("role", "system"); put("content", SYSTEM_INSTRUCTIONS) })
+                put(JSONObject().apply { put("role", "user");   put("content", message) })
             })
         }
         return json.toString().toRequestBody("application/json".toMediaType())
