@@ -12,7 +12,7 @@ private const val API_URL: String = "https://chat-ai.academiccloud.de/v1/chat/co
 private const val MODEL: String = "gemma-3-27b-it"
 private const val SYSTEM_PROMPT: String = "You are a helpful fitness chatbot."
 
-private val RESPONSE_SPECIFICATION = """
+private val RESPONSE_SPECIFICATION: String = """
     Respond in plain chat text with a maximum length of 300 characters.
     No emojis, markdown, lists, or filler phrases.
     Keep the answer concise, direct, and focused on essential information only.
@@ -21,7 +21,7 @@ private val RESPONSE_SPECIFICATION = """
     If the request is not fitness-related, politely state that only fitness-related questions are supported and ask the user to provide a fitness-related question.
 """.trimIndent()
 
-private val SYSTEM_INSTRUCTIONS = """
+private val SYSTEM_INSTRUCTIONS: String = """
     Instructions:
     $SYSTEM_PROMPT
     $RESPONSE_SPECIFICATION
