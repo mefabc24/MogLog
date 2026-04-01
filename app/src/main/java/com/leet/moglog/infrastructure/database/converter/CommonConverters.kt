@@ -1,0 +1,10 @@
+package com.leet.moglog.infrastructure.database.converter
+
+import androidx.room.TypeConverter
+import java.time.LocalDate
+
+class CommonConverters {
+    // LocalDate Converter
+    @TypeConverter fun fromDate(date: LocalDate?): String? = date?.toString()
+    @TypeConverter fun toDate(value: String?): LocalDate? = value?.let { LocalDate.parse(it) }
+}
