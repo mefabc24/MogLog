@@ -1,5 +1,6 @@
 package com.leet.moglog.common.enums
 
+@Suppress("unused")
 enum class Equipment {
     BARBELL,
     DUMBBELL,
