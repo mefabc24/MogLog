@@ -3,11 +3,12 @@ import java.util.Properties
 val localProperties = Properties()
 localProperties.load(rootProject.file("local.properties").inputStream())
 
-val apiKey = localProperties.getProperty("AI_API_KEY") ?: throw IllegalStateException("AI_API_KEY not found in local.properties")
+val apiKey = localProperties.getProperty("AI_API_KEY") ?: ""
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -67,4 +68,7 @@ dependencies {
 
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    implementation("androidx.room:room-runtime:2.8.4")
+    ksp("androidx.room:room-compiler:2.8.4")
 }
