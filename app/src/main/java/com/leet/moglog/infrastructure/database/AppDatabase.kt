@@ -2,8 +2,12 @@ package com.leet.moglog.infrastructure.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.leet.moglog.fitness.TrainingProfile
 import com.leet.moglog.fitness.TrainingProfileDao
+import com.leet.moglog.infrastructure.database.converter.CommonConverters
+import com.leet.moglog.infrastructure.database.converter.EnumConverters
+import com.leet.moglog.infrastructure.database.converter.ListConverters
 import com.leet.moglog.user.UserPreferences
 import com.leet.moglog.user.UserPreferencesDao
 import com.leet.moglog.user.UserProfile
@@ -16,6 +20,12 @@ import com.leet.moglog.user.UserProfileDao
         UserPreferences::class
     ],
     version = 1
+)
+
+@TypeConverters(
+    EnumConverters::class,
+    ListConverters::class,
+    CommonConverters::class
 )
 
 abstract class AppDatabase : RoomDatabase() {
