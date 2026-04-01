@@ -7,12 +7,15 @@ import com.leet.moglog.exercise.enums.MuscleGroup
 import com.leet.moglog.exercise.enums.MuscleRegion
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.leet.moglog.infrastructure.json.JsonService
 
-class ExerciseRepository(private val context: Context) {
+private const val EXERCISE_DATA_FILE: String = "exercises.json"
+
+class ExerciseRepository(private val jsonService: JsonService) {
 
     // Cached exercises
     val exercises: List<Exercise> by lazy {
-        loadExercises(context)
+        jsonService.loadFromAssets(EXERCISE_DATA_FILE)
     }
 
     // Basic query operations
