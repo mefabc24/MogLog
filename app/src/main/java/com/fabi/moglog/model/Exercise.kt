@@ -1,7 +1,7 @@
 package com.fabi.moglog.model
 
+import com.fabi.moglog.model.enums.Equipment
 import com.fabi.moglog.model.enums.Difficulty
-import com.fabi.moglog.model.enums.MuscleGroup
 
 data class Exercise(
     val id: String,
@@ -10,7 +10,8 @@ data class Exercise(
     val imageUrl: String?,
     val videoUrl: String?,
     val muscleTarget: List<MuscleTarget>,
-    val difficulty: Difficulty
+    val difficulty: Difficulty,
+    val equipment: Equipment
 )
 
 
