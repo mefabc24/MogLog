@@ -15,7 +15,8 @@ class ExerciseRepository(private val jsonLoader: JsonLoader) {
 
     // Cached exercises
     val exercises: List<Exercise> by lazy {
-        jsonService.loadFromAssets(EXERCISE_DATA_FILE)
+        val type = object : TypeToken<List<Exercise>>() {}.type
+        jsonLoader.loadFromAssets(EXERCISE_DATA_FILE, type)
     }
 
     // Basic query operations
@@ -53,15 +54,5 @@ class ExerciseRepository(private val jsonLoader: JsonLoader) {
     @Suppress("unused")
     fun getAllExercises(): List<Exercise> {
         return exercises
-    }
-
-    // Utility function to load exercises from JSON file
-    fun loadExercises(context: Context): List<Exercise> {
-        val json = context.assets.open("exercises.json")
-            .bufferedReader()
-            .use { it.readText() }
-
-        val type = object : TypeToken<List<Exercise>>() {}.type
-        return Gson().fromJson(json, type)
     }
 }
