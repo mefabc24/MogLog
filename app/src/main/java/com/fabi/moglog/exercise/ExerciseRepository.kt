@@ -1,7 +1,6 @@
-package com.fabi.moglog.repository
+package com.fabi.moglog.exercise
 
 import android.content.Context
-import com.fabi.moglog.exercise.Exercise
 import com.fabi.moglog.exercise.enums.Difficulty
 import com.fabi.moglog.exercise.enums.Muscle
 import com.fabi.moglog.exercise.enums.MuscleGroup

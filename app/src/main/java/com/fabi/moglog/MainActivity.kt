@@ -25,7 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.fabi.moglog.services.AiService
+import com.fabi.moglog.infrastructure.ai.AiService
 import com.fabi.moglog.ui.theme.MogLogTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

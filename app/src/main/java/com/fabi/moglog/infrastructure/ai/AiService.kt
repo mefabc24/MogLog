@@ -1,4 +1,4 @@
-package com.fabi.moglog.services
+package com.fabi.moglog.infrastructure.ai
 
 import com.fabi.moglog.BuildConfig
 import okhttp3.*

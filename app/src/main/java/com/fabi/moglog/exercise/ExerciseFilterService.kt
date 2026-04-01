@@ -1,6 +1,5 @@
-package com.fabi.moglog.services
+package com.fabi.moglog.exercise
 
-import com.fabi.moglog.exercise.Exercise
 import com.fabi.moglog.exercise.enums.Difficulty
 import com.fabi.moglog.exercise.enums.EffectivenessLevel
 import com.fabi.moglog.exercise.enums.Muscle
