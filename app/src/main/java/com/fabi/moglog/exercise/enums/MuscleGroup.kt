@@ -1,5 +1,6 @@
 package com.fabi.moglog.exercise.enums
 
+@Suppress("unused")
 enum class MuscleGroup(val region: MuscleRegion) {
     // Arms
     BICEPS(MuscleRegion.ARMS),
