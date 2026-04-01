@@ -5,12 +5,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 
-class JsonService(
-    private val context: Context,
-    private val gson: Gson = Gson()
-    ) {
+class JsonService(private val context: Context) : JsonLoader {
+    private val gson = Gson()
 
-    fun <T> loadFromAssets(fileName: String, type: Type): T {
+    override fun <T> loadFromAssets(fileName: String, type: Type): T {
         val json = context.assets.open(fileName)
             .bufferedReader()
             .use { it.readText() }
