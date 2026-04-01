@@ -4,6 +4,8 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.leet.moglog.fitness.TrainingProfile
 import com.leet.moglog.fitness.TrainingProfileDao
+import com.leet.moglog.user.UserPreferencesDao
+import com.leet.moglog.user.UserProfileDao
 
 @Database(
     entities = [
@@ -15,4 +17,6 @@ import com.leet.moglog.fitness.TrainingProfileDao
 abstract class AppDatabase : RoomDatabase() {
     // DAOs
     abstract fun trainingProfileDao(): TrainingProfileDao
+    abstract fun userProfileDao(): UserProfileDao
+    abstract fun userPreferencesDao(): UserPreferencesDao
 }
