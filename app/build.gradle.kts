@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "com.fabi.moglog"
+    namespace = "com.leet.moglog"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
