@@ -1,9 +1,13 @@
 package com.leet.moglog.common.enums
 
 enum class Equipment {
-    BODYWEIGHT_ONLY,
-    DUMBBELLS,
     BARBELL,
-    KETTLEBELL,
-    MACHINES
+    DUMBBELL,
+    BODYWEIGHT,
+    BENCH,
+    RACK,
+    MACHINE,
+    CABLE,
+    PULLUP_BAR,
+    EZ_BAR
 }
