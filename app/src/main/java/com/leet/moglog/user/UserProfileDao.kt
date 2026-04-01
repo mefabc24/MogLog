@@ -19,5 +19,5 @@ interface UserProfileDao {
     suspend fun delete(userProfile: UserProfile)
 
     @Query("SELECT * FROM user_profiles LIMIT 1")
-    suspend fun getById(id: UUID): UserProfile?
+    suspend fun getById(): UserProfile?
 }
