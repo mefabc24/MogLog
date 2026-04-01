@@ -1,10 +1,10 @@
-package com.leet.moglog.training
+package com.leet.moglog.fitness
 
 import com.leet.moglog.common.enums.Equipment
-import com.leet.moglog.training.enums.FitnessLevel
-import com.leet.moglog.training.enums.PrimaryGoal
-import com.leet.moglog.training.enums.TrainingLocation
-import com.leet.moglog.training.enums.TrainingStyle
+import com.leet.moglog.fitness.enums.FitnessLevel
+import com.leet.moglog.fitness.enums.PrimaryGoal
+import com.leet.moglog.fitness.enums.TrainingLocation
+import com.leet.moglog.fitness.enums.TrainingStyle
 import java.util.UUID
 
 data class TrainingProfile(
