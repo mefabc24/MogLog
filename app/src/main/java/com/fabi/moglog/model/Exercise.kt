@@ -11,7 +11,7 @@ data class Exercise(
     val videoUrl: String?,
     val muscleTarget: List<MuscleTarget>,
     val difficulty: Difficulty,
-    val equipment: Equipment
+    val equipment: List<Equipment>
 )
 
 
