@@ -22,7 +22,6 @@ private val RESPONSE_SPECIFICATION: String = """
 """.trimIndent()
 
 private val SYSTEM_INSTRUCTIONS: String = """
-    Instructions:
     $SYSTEM_PROMPT
     $RESPONSE_SPECIFICATION
 """.trimIndent()

@@ -1,18 +1,18 @@
 package com.fabi.moglog.model
 
 import com.fabi.moglog.model.enums.Gender
-import java.util.Date
+import java.time.LocalDate
 import java.util.UUID
 
 data class UserProfile(
-    val userId: UUID,
-    val displayName: Gender,
-    val createdAt: Date,
+    val userId: UUID = UUID.randomUUID(),
+    val displayName: String,
+    val createdAt: LocalDate = LocalDate.now(),
 
     val age: Int,
     val heightCm: Int,
-    val gender: String,
+    val gender: Gender,
 
-    val trainingProfile: TrainingProfile,
+    val activeTrainingProfileId: UUID?,
     val userPreferences: UserPreferences,
 )
