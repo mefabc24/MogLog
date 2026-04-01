@@ -4,12 +4,16 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.leet.moglog.fitness.TrainingProfile
 import com.leet.moglog.fitness.TrainingProfileDao
+import com.leet.moglog.user.UserPreferences
 import com.leet.moglog.user.UserPreferencesDao
+import com.leet.moglog.user.UserProfile
 import com.leet.moglog.user.UserProfileDao
 
 @Database(
     entities = [
-        TrainingProfile::class
+        TrainingProfile::class,
+        UserProfile::class,
+        UserPreferences::class
     ],
     version = 1
 )
