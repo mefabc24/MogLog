@@ -1,4 +1,4 @@
-package com.fabi.moglog.model.enums
+package com.fabi.moglog.user.enums
 
 enum class Gender {
     MALE, FEMALE, OTHER

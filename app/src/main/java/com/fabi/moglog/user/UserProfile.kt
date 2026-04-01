@@ -1,6 +1,6 @@
-package com.fabi.moglog.model
+package com.fabi.moglog.user
 
-import com.fabi.moglog.model.enums.Gender
+import com.fabi.moglog.user.enums.Gender
 import java.time.LocalDate
 import java.util.UUID
 

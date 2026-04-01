@@ -1,11 +1,11 @@
 package com.fabi.moglog.services
 
-import com.fabi.moglog.model.Exercise
-import com.fabi.moglog.model.enums.Difficulty
-import com.fabi.moglog.model.enums.EffectivenessLevel
-import com.fabi.moglog.model.enums.Muscle
-import com.fabi.moglog.model.enums.MuscleGroup
-import com.fabi.moglog.model.enums.MuscleRegion
+import com.fabi.moglog.exercise.Exercise
+import com.fabi.moglog.exercise.enums.Difficulty
+import com.fabi.moglog.exercise.enums.EffectivenessLevel
+import com.fabi.moglog.exercise.enums.Muscle
+import com.fabi.moglog.exercise.enums.MuscleGroup
+import com.fabi.moglog.exercise.enums.MuscleRegion
 
 class ExerciseFilterService {
     fun filterExercises(

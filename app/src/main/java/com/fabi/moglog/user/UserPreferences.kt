@@ -1,4 +1,4 @@
-package com.fabi.moglog.model
+package com.fabi.moglog.user
 
 data class UserPreferences(
     val notifications: Boolean

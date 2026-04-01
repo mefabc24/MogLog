@@ -1,4 +1,4 @@
-package com.fabi.moglog.model.enums
+package com.fabi.moglog.exercise.enums
 
 enum class MuscleGroup(val region: MuscleRegion) {
     // Arms

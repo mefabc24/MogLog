@@ -1,4 +1,4 @@
-package com.fabi.moglog.model.enums
+package com.fabi.moglog.training.enums
 
 enum class TrainingLocation {
     GYM, HOME, OUTDOORS, MIXED

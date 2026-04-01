@@ -1,7 +1,7 @@
-package com.fabi.moglog.model
+package com.fabi.moglog.exercise
 
-import com.fabi.moglog.model.enums.Equipment
-import com.fabi.moglog.model.enums.Difficulty
+import com.fabi.moglog.common.enums.Equipment
+import com.fabi.moglog.exercise.enums.Difficulty
 
 data class Exercise(
     val id: String,

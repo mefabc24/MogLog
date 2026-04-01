@@ -1,4 +1,4 @@
-package com.fabi.moglog.model.enums
+package com.fabi.moglog.exercise.enums
 
 enum class ExerciseSortType {
     NAME,
@@ -8,4 +8,3 @@ enum class ExerciseSortType {
     MUSCLE,
     EFFECTIVENESS
 }
-

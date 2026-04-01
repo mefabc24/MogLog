@@ -1,4 +1,4 @@
-package com.fabi.moglog.model.enums
+package com.fabi.moglog.common.enums
 
 enum class Equipment {
     BODYWEIGHT_ONLY,
