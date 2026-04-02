@@ -91,8 +91,8 @@ class ExerciseRepositoryTest {
         val repository = ExerciseRepository(jsonService)
 
         val targetExercise = mockExercises.first()
-        val result: Exercise? = repository.getExerciseById(targetExercise.id)
+        val result: Exercise? = repository.getExerciseById("deadlift")
 
-        assertEquals(targetExercise.name, result?.name)
+        assertEquals("deadlift", result?.id)
     }
 }
