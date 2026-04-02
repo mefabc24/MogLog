@@ -9,7 +9,13 @@ import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlan
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-object UpperLowerTemplates {
+object UpperLowerTemplates : WorkoutPlanTemplate {
+    override fun getPlans(): List<WorkoutPlan> {
+        return listOf(
+            standard(),
+            strengthFocused()
+        )
+    }
 
     fun standard(): WorkoutPlan {
         return createPlan(
