@@ -1,15 +1,21 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
+import com.leet.moglog.profile.enums.TrainingLocation
+import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlan
+import com.leet.moglog.workout.enums.WorkoutSplit
 
 object FullBodyTemplates {
     fun beginner(): WorkoutPlan {
-        return WorkoutPlan(
+        return createPlan(
             name = "Beginner Full Body",
             description = "3 day beginner plan",
             workoutDaysPerWeek = 3,
+            trainingStyle = TrainingStyle.BALANCED,
             workouts = listOf(
                 Workout(
                     name = "Full Body A",
@@ -40,10 +46,11 @@ object FullBodyTemplates {
     }
 
     fun intermediate(): WorkoutPlan {
-        return WorkoutPlan(
+        return createPlan(
             name = "Intermediate Full Body",
             description = "4 day full body volume plan",
             workoutDaysPerWeek = 4,
+            trainingStyle = TrainingStyle.BALANCED,
             workouts = listOf(
                 Workout(
                     name = "Full Body Strength",
@@ -74,6 +81,30 @@ object FullBodyTemplates {
                     )
                 )
             )
+        )
+    }
+
+    // Helper function
+    private fun createPlan(
+        name: String,
+        description: String,
+        workoutDaysPerWeek: Int,
+        trainingStyle: TrainingStyle,
+        primaryGoal: PrimaryGoal? = null,
+        fitnessLevel: FitnessLevel? = null,
+        trainingLocation: TrainingLocation? = null,
+        workouts: List<Workout>
+    ): WorkoutPlan {
+        return WorkoutPlan(
+            name = name,
+            description = description,
+            split = WorkoutSplit.FULL_BODY,
+            workoutDaysPerWeek = workoutDaysPerWeek,
+            primaryGoal = primaryGoal,
+            fitnessLevel = fitnessLevel,
+            trainingLocation = trainingLocation,
+            trainingStyle = trainingStyle,
+            workouts = workouts
         )
     }
 }

@@ -1,15 +1,21 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
+import com.leet.moglog.profile.enums.TrainingLocation
+import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlan
+import com.leet.moglog.workout.enums.WorkoutSplit
 
 object PushPullLegsTemplates {
     fun classic(): WorkoutPlan {
-        return WorkoutPlan(
+        return createPlan(
             name = "Classic PPL",
             description = "6 day hypertrophy split",
             workoutDaysPerWeek = 6,
+            trainingStyle = TrainingStyle.HYPERTROPHY,
             workouts = listOf(
                 Workout(
                     name = "Push",
@@ -64,10 +70,11 @@ object PushPullLegsTemplates {
     }
 
     fun advanced(): WorkoutPlan {
-        return WorkoutPlan(
+        return createPlan(
             name = "Advanced PPL",
             description = "High volume 6 day split",
             workoutDaysPerWeek = 6,
+            trainingStyle = TrainingStyle.HYPERTROPHY,
             workouts = listOf(
                 Workout(
                     name = "Push",
@@ -124,6 +131,30 @@ object PushPullLegsTemplates {
                     )
                 )
             )
+        )
+    }
+
+    // Helper function
+    private fun createPlan(
+        name: String,
+        description: String,
+        workoutDaysPerWeek: Int,
+        trainingStyle: TrainingStyle,
+        primaryGoal: PrimaryGoal? = null,
+        fitnessLevel: FitnessLevel? = null,
+        trainingLocation: TrainingLocation? = null,
+        workouts: List<Workout>
+    ): WorkoutPlan {
+        return WorkoutPlan(
+            name = name,
+            description = description,
+            split = WorkoutSplit.PUSH_PULL_LEGS,
+            workoutDaysPerWeek = workoutDaysPerWeek,
+            primaryGoal = primaryGoal,
+            fitnessLevel = fitnessLevel,
+            trainingLocation = trainingLocation,
+            trainingStyle = trainingStyle,
+            workouts = workouts
         )
     }
 }
