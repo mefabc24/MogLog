@@ -9,14 +9,9 @@ import java.util.UUID
 
 @Dao
 interface TrainingProfileDao {
-    @Insert
-    suspend fun insert(trainingProfile: TrainingProfile)
-
-    @Update
-    suspend fun update(trainingProfile: TrainingProfile)
-
-    @Delete
-    suspend fun delete(trainingProfile: TrainingProfile)
+    @Insert suspend fun insert(trainingProfile: TrainingProfile)
+    @Update suspend fun update(trainingProfile: TrainingProfile)
+    @Delete suspend fun delete(trainingProfile: TrainingProfile)
 
     @Query("SELECT * FROM training_profiles")
     suspend fun getAll(): List<TrainingProfile>

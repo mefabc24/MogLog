@@ -9,14 +9,9 @@ import java.util.UUID
 
 @Dao
 interface UserProfileDao {
-    @Insert
-    suspend fun insert(userProfile: UserProfile)
-
-    @Update
-    suspend fun update(userProfile: UserProfile)
-
-    @Delete
-    suspend fun delete(userProfile: UserProfile)
+    @Insert suspend fun insert(userProfile: UserProfile)
+    @Update suspend fun update(userProfile: UserProfile)
+    @Delete suspend fun delete(userProfile: UserProfile)
 
     @Query("SELECT * FROM user_profiles LIMIT 1")
     suspend fun getById(): UserProfile?
