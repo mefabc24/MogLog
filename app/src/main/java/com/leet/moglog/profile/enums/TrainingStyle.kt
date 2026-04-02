@@ -1,4 +1,4 @@
-package com.leet.moglog.fitness.enums
+package com.leet.moglog.profile.enums
 
 @Suppress("unused")
 enum class TrainingStyle {

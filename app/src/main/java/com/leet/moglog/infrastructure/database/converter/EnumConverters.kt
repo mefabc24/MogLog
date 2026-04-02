@@ -2,10 +2,10 @@ package com.leet.moglog.infrastructure.database.converter
 
 import androidx.room.TypeConverter
 import com.leet.moglog.common.enums.Equipment
-import com.leet.moglog.fitness.enums.FitnessLevel
-import com.leet.moglog.fitness.enums.PrimaryGoal
-import com.leet.moglog.fitness.enums.TrainingLocation
-import com.leet.moglog.fitness.enums.TrainingStyle
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
+import com.leet.moglog.profile.enums.TrainingLocation
+import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.user.enums.Gender
 
 class EnumConverters {

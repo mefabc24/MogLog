@@ -3,8 +3,8 @@ package com.leet.moglog.infrastructure.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.leet.moglog.fitness.TrainingProfile
-import com.leet.moglog.fitness.TrainingProfileDao
+import com.leet.moglog.profile.TrainingProfile
+import com.leet.moglog.profile.TrainingProfileDao
 import com.leet.moglog.infrastructure.database.converter.CommonConverters
 import com.leet.moglog.infrastructure.database.converter.EnumConverters
 import com.leet.moglog.infrastructure.database.converter.ListConverters

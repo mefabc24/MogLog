@@ -1,12 +1,12 @@
-package com.leet.moglog.fitness
+package com.leet.moglog.profile
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.leet.moglog.common.enums.Equipment
-import com.leet.moglog.fitness.enums.FitnessLevel
-import com.leet.moglog.fitness.enums.PrimaryGoal
-import com.leet.moglog.fitness.enums.TrainingLocation
-import com.leet.moglog.fitness.enums.TrainingStyle
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
+import com.leet.moglog.profile.enums.TrainingLocation
+import com.leet.moglog.profile.enums.TrainingStyle
 import java.util.UUID
 
 @Entity(tableName = "training_profiles")

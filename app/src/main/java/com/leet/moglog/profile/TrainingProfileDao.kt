@@ -1,4 +1,4 @@
-package com.leet.moglog.fitness
+package com.leet.moglog.profile
 
 import androidx.room.Dao
 import androidx.room.Delete
