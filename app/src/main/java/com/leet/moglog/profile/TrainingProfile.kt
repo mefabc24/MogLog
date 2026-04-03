@@ -3,7 +3,6 @@ package com.leet.moglog.profile
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.leet.moglog.common.enums.Equipment
-import com.leet.moglog.exercise.enums.MuscleGroup
 import com.leet.moglog.profile.enums.FitnessLevel
 import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingFocus
