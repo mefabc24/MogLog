@@ -22,7 +22,7 @@ import java.util.UUID
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index("trainingProfileId")]
+    indices = [Index(value = ["trainingProfileId"], unique = true)]
 )
 data class WorkoutPlan(
     @PrimaryKey val id: UUID = UUID.randomUUID(),
