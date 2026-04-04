@@ -14,8 +14,8 @@ data class UserProfileWithRelations(
     val activeTrainingProfile: TrainingProfile?,
 
     @Relation(
-        parentColumn = "userPreferencesId",
-        entityColumn = "id"
+        parentColumn = "userId",
+        entityColumn = "userId"
     )
     val userPreferences: UserPreferences?
 )

@@ -17,17 +17,10 @@ import java.util.UUID
             parentColumns = ["id"],
             childColumns = ["activeTrainingProfileId"],
             onDelete = ForeignKey.SET_NULL
-        ),
-        ForeignKey(
-            entity = UserPreferences::class,
-            parentColumns = ["id"],
-            childColumns = ["userPreferencesId"],
-            onDelete = ForeignKey.SET_NULL
         )
     ],
     indices = [
-        Index("activeTrainingProfileId"),
-        Index("userPreferencesId")
+        Index("activeTrainingProfileId")
     ]
 )
 data class UserProfile(
@@ -39,6 +32,5 @@ data class UserProfile(
     val heightCm: Int,
     val gender: Gender,
 
-    val activeTrainingProfileId: UUID?,
-    val userPreferencesId: UUID?,
+    val activeTrainingProfileId: UUID?
 )
