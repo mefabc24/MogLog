@@ -1,5 +1,7 @@
 package com.leet.moglog.profile
 
+import java.util.UUID
+
 class TrainingProfileRepository(val dao: TrainingProfileDao) {
 
     // CRUD operations for TrainingProfile
@@ -9,6 +11,10 @@ class TrainingProfileRepository(val dao: TrainingProfileDao) {
 
     suspend fun getAll(): List<TrainingProfile> {
         return dao.getAll()
+    }
+
+    suspend fun getById(id: UUID): TrainingProfile? {
+        return dao.getById(id)
     }
 
     suspend fun update(profile: TrainingProfile) {
