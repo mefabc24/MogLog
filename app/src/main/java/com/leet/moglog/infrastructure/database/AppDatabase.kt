@@ -12,12 +12,14 @@ import com.leet.moglog.user.UserPreferences
 import com.leet.moglog.user.UserPreferencesDao
 import com.leet.moglog.user.UserProfile
 import com.leet.moglog.user.UserProfileDao
+import com.leet.moglog.workout.WorkoutPlan
 
 @Database(
     entities = [
         TrainingProfile::class,
         UserProfile::class,
-        UserPreferences::class
+        UserPreferences::class,
+        WorkoutPlan::class
     ],
     version = 1
 )
@@ -33,4 +35,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun trainingProfileDao(): TrainingProfileDao
     abstract fun userProfileDao(): UserProfileDao
     abstract fun userPreferencesDao(): UserPreferencesDao
+    abstract fun workoutPlanDao(): WorkoutPlanDao
 }
