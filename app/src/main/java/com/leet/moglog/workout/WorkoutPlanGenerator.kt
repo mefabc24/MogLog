@@ -2,14 +2,19 @@ package com.leet.moglog.workout
 
 import com.leet.moglog.profile.TrainingProfile
 import com.leet.moglog.profile.hasLegFocus
+import com.leet.moglog.profile.hasLongerSessions
 import com.leet.moglog.profile.hasLongSessions
+import com.leet.moglog.profile.hasMediumSessions
 import com.leet.moglog.profile.hasShortSessions
+import com.leet.moglog.profile.hasShorterSessions
 import com.leet.moglog.profile.hasStrongArmFocus
 import com.leet.moglog.profile.hasUpperFocus
 import com.leet.moglog.profile.hasVeryLongSessions
+import com.leet.moglog.profile.hasVeryShortSessions
 import com.leet.moglog.profile.isAdvanced
 import com.leet.moglog.profile.isBeginner
 import com.leet.moglog.profile.isHypertrophyFocused
+import com.leet.moglog.profile.isIntermediate
 import com.leet.moglog.profile.isStrengthFocused
 import com.leet.moglog.profile.prefersBalancedFocus
 import com.leet.moglog.workout.enums.WorkoutSplit
@@ -43,138 +48,124 @@ class WorkoutPlanGenerator(
     // Split Calculations --------------------------------------------------------------------------
 
     private fun calculateSplit(trainingProfile: TrainingProfile): WorkoutSplit {
-        return when (trainingProfile.trainingFrequency) {
+        val context = trainingProfile.toSplitContext()
+
+        return when (context.trainingFrequency) {
             1 -> WorkoutSplit.FULL_BODY
-            2 -> calculateTwoDaySplit(trainingProfile)
-            3 -> calculateThreeDaySplit(trainingProfile)
-            4 -> calculateFourDaySplit(trainingProfile)
-            5 -> calculateFiveDaySplit(trainingProfile)
-            6 -> calculateSixDaySplit(trainingProfile)
-            7 -> calculateSevenDaySplit(trainingProfile)
+            2 -> calculateTwoDaySplit(context)
+            3 -> calculateThreeDaySplit(context)
+            4 -> calculateFourDaySplit(context)
+            5 -> calculateFiveDaySplit(context)
+            6 -> calculateSixDaySplit(context)
+            7 -> calculateSevenDaySplit(context)
             else -> WorkoutSplit.FULL_BODY // Default fallback
         }
     }
 
     // Split Calculation Helpers -------------------------------------------------------------------
-    private fun calculateTwoDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isHypertrophy = profile.isHypertrophyFocused()
-        val isStrength = profile.isStrengthFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-
-        return when {
-            isBeginner || hasShortSessions -> WorkoutSplit.FULL_BODY
-            isStrength -> WorkoutSplit.UPPER_LOWER
-            isHypertrophy && hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
-            isHypertrophy -> WorkoutSplit.UPPER_LOWER
+    private fun calculateTwoDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions -> WorkoutSplit.FULL_BODY
+            isStrengthFocused -> WorkoutSplit.UPPER_LOWER
+            isHypertrophyFocused && hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+            isHypertrophyFocused -> WorkoutSplit.UPPER_LOWER
             else -> WorkoutSplit.FULL_BODY
         }
     }
 
-    private fun calculateThreeDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isHypertrophy = profile.isHypertrophyFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-        val hasStrongArmFocus = profile.hasStrongArmFocus()
-        val isStrength = profile.isStrengthFocused()
-
-        return when {
-            isBeginner || hasShortSessions -> WorkoutSplit.FULL_BODY
-            isHypertrophy && hasLongSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
-            isHypertrophy && hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
-            isHypertrophy -> WorkoutSplit.PUSH_PULL_LEGS
-            isStrength -> WorkoutSplit.UPPER_LOWER
+    private fun calculateThreeDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions -> WorkoutSplit.FULL_BODY
+            isHypertrophyFocused && hasLongerSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
+            isHypertrophyFocused && hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+            isHypertrophyFocused -> WorkoutSplit.PUSH_PULL_LEGS
+            isStrengthFocused -> WorkoutSplit.UPPER_LOWER
             else -> WorkoutSplit.UPPER_LOWER
         }
     }
 
-    private fun calculateFourDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isStrength = profile.isStrengthFocused()
-        val isHypertrophy = profile.isHypertrophyFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-        val hasStrongArmFocus = profile.hasStrongArmFocus()
-        val hasLegFocus = profile.hasLegFocus()
-
-        return when {
-            isBeginner || hasShortSessions || isStrength -> WorkoutSplit.UPPER_LOWER
-            isHypertrophy && hasLongSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
-            isHypertrophy && hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
-            isHypertrophy && hasLegFocus -> WorkoutSplit.PUSH_PULL_LEGS
+    private fun calculateFourDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions || isStrengthFocused -> WorkoutSplit.UPPER_LOWER
+            isHypertrophyFocused && hasLongerSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
+            isHypertrophyFocused && hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+            isHypertrophyFocused && hasLegFocus -> WorkoutSplit.PUSH_PULL_LEGS
             else -> WorkoutSplit.UPPER_LOWER
         }
     }
 
-    private fun calculateFiveDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isStrength = profile.isStrengthFocused()
-        val isHypertrophy = profile.isHypertrophyFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-        val hasStrongArmFocus = profile.hasStrongArmFocus()
-        val hasLegFocus = profile.hasLegFocus()
-        val isAdvanced = profile.isAdvanced()
-        val hasVeryLongSessions = profile.hasVeryLongSessions()
-        val prefersBalancedFocus = profile.prefersBalancedFocus()
-
-        return when {
-            isBeginner || hasShortSessions || isStrength -> WorkoutSplit.UPPER_LOWER
-            hasLongSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
-            hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+    private fun calculateFiveDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions || isStrengthFocused -> WorkoutSplit.UPPER_LOWER
+            hasLongerSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
+            hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
             hasLegFocus -> WorkoutSplit.PUSH_PULL_LEGS
-            isHypertrophy && (isAdvanced || hasVeryLongSessions || prefersBalancedFocus) -> WorkoutSplit.BRO_SPLIT
-            isHypertrophy -> WorkoutSplit.PUSH_PULL_LEGS
+            isHypertrophyFocused && (isAdvanced || hasVeryLongSessions || prefersBalancedFocus) -> WorkoutSplit.BRO_SPLIT
+            isHypertrophyFocused -> WorkoutSplit.PUSH_PULL_LEGS
             else -> WorkoutSplit.UPPER_LOWER
         }
     }
 
-    private fun calculateSixDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isStrength = profile.isStrengthFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasVeryLongSessions = profile.hasVeryLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-        val hasStrongArmFocus = profile.hasStrongArmFocus()
-        val isAdvanced = profile.isAdvanced()
-        val isHypertrophy = profile.isHypertrophyFocused()
-        val prefersBalancedFocus = profile.prefersBalancedFocus()
-
-        return when {
-            isBeginner || hasShortSessions || isStrength -> WorkoutSplit.UPPER_LOWER
-            hasLongSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
-            hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
-            isHypertrophy && isAdvanced && hasVeryLongSessions && prefersBalancedFocus -> WorkoutSplit.BRO_SPLIT
+    private fun calculateSixDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions || isStrengthFocused -> WorkoutSplit.UPPER_LOWER
+            hasLongerSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
+            hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+            isHypertrophyFocused && isAdvanced && hasVeryLongSessions && prefersBalancedFocus -> WorkoutSplit.BRO_SPLIT
             else -> WorkoutSplit.PUSH_PULL_LEGS
         }
     }
 
-    private fun calculateSevenDaySplit(profile: TrainingProfile): WorkoutSplit {
-        val isBeginner = profile.isBeginner()
-        val hasShortSessions = profile.hasShortSessions()
-        val isStrength = profile.isStrengthFocused()
-        val hasLongSessions = profile.hasLongSessions()
-        val hasUpperFocus = profile.hasUpperFocus()
-        val hasStrongArmFocus = profile.hasStrongArmFocus()
-        val hasLegFocus = profile.hasLegFocus()
-        val prefersBalancedFocus = profile.prefersBalancedFocus()
-        val isAdvanced = profile.isAdvanced()
-        val isHypertrophy = profile.isHypertrophyFocused()
-
-        return when {
-            isBeginner || hasShortSessions || isStrength -> WorkoutSplit.UPPER_LOWER
-            hasLongSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
-            hasLongSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
+    private fun calculateSevenDaySplit(context: SplitContext): WorkoutSplit = with(context) {
+        when {
+            isBeginner || hasShorterSessions || isStrengthFocused -> WorkoutSplit.UPPER_LOWER
+            hasLongerSessions && hasStrongArmFocus -> WorkoutSplit.ARMS_TORSO_LEGS
+            hasLongerSessions && hasUpperFocus -> WorkoutSplit.TORSO_LIMB_SPLIT
             hasLegFocus -> WorkoutSplit.PUSH_PULL_LEGS
-            isHypertrophy || isAdvanced || prefersBalancedFocus -> WorkoutSplit.BRO_SPLIT
+            isHypertrophyFocused || isAdvanced || prefersBalancedFocus -> WorkoutSplit.BRO_SPLIT
             else -> WorkoutSplit.PUSH_PULL_LEGS
         }
     }
 }
+
+// Context class to hold all relevant profile attributes for split calculations
+private data class SplitContext(
+    val trainingFrequency: Int,
+    val isBeginner: Boolean,
+    val isIntermediate: Boolean,
+    val isAdvanced: Boolean,
+    val isStrengthFocused: Boolean,
+    val isHypertrophyFocused: Boolean,
+    val hasVeryShortSessions: Boolean,
+    val hasShortSessions: Boolean,
+    val hasMediumSessions: Boolean,
+    val hasLongSessions: Boolean,
+    val hasVeryLongSessions: Boolean,
+    val hasShorterSessions: Boolean,
+    val hasLongerSessions: Boolean,
+    val hasUpperFocus: Boolean,
+    val hasStrongArmFocus: Boolean,
+    val hasLegFocus: Boolean,
+    val prefersBalancedFocus: Boolean,
+)
+
+// Extension function to convert TrainingProfile to SplitContext for easier split calculations
+private fun TrainingProfile.toSplitContext(): SplitContext = SplitContext(
+    trainingFrequency = trainingFrequency,
+    isBeginner = isBeginner(),
+    isIntermediate = isIntermediate(),
+    isAdvanced = isAdvanced(),
+    isStrengthFocused = isStrengthFocused(),
+    isHypertrophyFocused = isHypertrophyFocused(),
+    hasVeryShortSessions = hasVeryShortSessions(),
+    hasShortSessions = hasShortSessions(),
+    hasMediumSessions = hasMediumSessions(),
+    hasLongSessions = hasLongSessions(),
+    hasVeryLongSessions = hasVeryLongSessions(),
+    hasShorterSessions = hasShorterSessions(),
+    hasLongerSessions = hasLongerSessions(),
+    hasUpperFocus = hasUpperFocus(),
+    hasStrongArmFocus = hasStrongArmFocus(),
+    hasLegFocus = hasLegFocus(),
+    prefersBalancedFocus = prefersBalancedFocus(),
+)
