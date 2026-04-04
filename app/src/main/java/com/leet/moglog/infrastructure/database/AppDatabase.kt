@@ -13,6 +13,7 @@ import com.leet.moglog.user.UserPreferencesDao
 import com.leet.moglog.user.UserProfile
 import com.leet.moglog.user.UserProfileDao
 import com.leet.moglog.workout.WorkoutPlan
+import com.leet.moglog.workout.WorkoutPlanDao
 
 @Database(
     entities = [
