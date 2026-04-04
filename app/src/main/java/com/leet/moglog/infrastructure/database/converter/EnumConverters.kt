@@ -7,6 +7,7 @@ import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingLocation
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.user.enums.Gender
+import com.leet.moglog.workout.enums.WorkoutSplit
 
 class EnumConverters {
 
@@ -33,4 +34,8 @@ class EnumConverters {
     // Gender Enum Converters
     @TypeConverter fun fromGender(gender: Gender?): String? = gender?.name
     @TypeConverter fun toGender(value: String?): Gender? = value?.let { Gender.valueOf(it) }
+
+    // WorkoutSplit Enum Converters
+    @TypeConverter fun fromWorkoutSplit(workoutSplit: WorkoutSplit?): String? = workoutSplit?.name
+    @TypeConverter fun toWorkoutSplit(value: String?): WorkoutSplit? = value?.let { WorkoutSplit.valueOf(it) }
 }
