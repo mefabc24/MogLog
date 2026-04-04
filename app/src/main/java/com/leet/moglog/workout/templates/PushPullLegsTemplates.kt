@@ -9,7 +9,7 @@ import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlan
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-object PushPullLegsTemplates : WorkoutPlanTemplate{
+object PushPullLegsTemplates : WorkoutPlanTemplate {
     override fun getPlans(): List<WorkoutPlan> {
         return listOf(
             classic(),

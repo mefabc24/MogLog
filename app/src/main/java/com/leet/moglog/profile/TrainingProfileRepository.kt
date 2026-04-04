@@ -2,7 +2,7 @@ package com.leet.moglog.profile
 
 import java.util.UUID
 
-class TrainingProfileRepository(val dao: TrainingProfileDao) {
+class TrainingProfileRepository(private val dao: TrainingProfileDao) {
 
     // CRUD operations for TrainingProfile
     suspend fun create(profile: TrainingProfile) {

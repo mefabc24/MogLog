@@ -2,9 +2,7 @@ package com.leet.moglog.user
 
 import java.util.UUID
 
-class UserProfileRepository(
-    val dao: UserProfileDao
-) {
+class UserProfileRepository(private val dao: UserProfileDao) {
 
     // CRUD operations for UserProfile
     suspend fun create(profile: UserProfile) {
