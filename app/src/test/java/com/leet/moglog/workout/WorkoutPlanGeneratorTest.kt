@@ -10,6 +10,7 @@ import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.enums.WorkoutSplit
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import java.util.UUID
 
 class WorkoutPlanGeneratorTest {
 
@@ -96,6 +97,7 @@ class WorkoutPlanGeneratorTest {
         trainingFocus: TrainingFocus = TrainingFocus.BALANCED
     ): TrainingProfile {
         return TrainingProfile(
+            userId = UUID.randomUUID(),
             profileName = "Test Profile",
             primaryGoal = primaryGoal,
             fitnessLevel = fitnessLevel,

@@ -22,8 +22,6 @@ fun TrainingProfile.hasShorterSessions(): Boolean =
 fun TrainingProfile.hasLongerSessions(): Boolean =
     mapToSessionLength(sessionDuration) == SessionLength.VERY_LONG || mapToSessionLength(sessionDuration) == SessionLength.LONG
 
-
-
 fun TrainingProfile.hasStrongArmFocus(): Boolean = trainingFocus == TrainingFocus.ARMS
 fun TrainingProfile.hasLegFocus(): Boolean = trainingFocus == TrainingFocus.LEGS
 
