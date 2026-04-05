@@ -13,6 +13,7 @@ import com.leet.moglog.user.UserProfileRepository
 import com.leet.moglog.user.enums.Gender
 import com.leet.moglog.workout.WorkoutPlanGenerator
 import com.leet.moglog.workout.WorkoutPlanRepository
+import com.leet.moglog.workout.toWorkoutPlan
 import java.util.UUID
 
 class OnboardingService(
@@ -68,11 +69,11 @@ class OnboardingService(
         // Set active training profile for the user
         userProfileRepository.setActiveTrainingProfile(userId, trainingProfile.id)
 
-        // Generate initial workout plan based on the training profile
-        val workoutPlan = workoutPlanGenerator.generate(trainingProfile)
+        // Generate initial workout plan draft based on the training profile
+        val workoutPlanDraft = workoutPlanGenerator.generate(trainingProfile)
 
-        // Save the generated workout plan
-        workoutPlanRepository.create(workoutPlan)
+        // Map draft and save the generated workout plan
+        workoutPlanRepository.create(workoutPlanDraft.toWorkoutPlan(trainingProfile.id))
     }
 
 

@@ -6,18 +6,18 @@ import com.leet.moglog.profile.enums.TrainingLocation
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlan
+import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object UpperLowerTemplates : WorkoutPlanTemplate {
-    override fun getPlans(): List<WorkoutPlan> {
+    override fun getPlans(): List<WorkoutPlanDraft> {
         return listOf(
             standard(),
             strengthFocused()
         )
     }
 
-    fun standard(): WorkoutPlan {
+    fun standard(): WorkoutPlanDraft {
         return createPlan(
             name = "Upper Lower Standard",
             description = "4 day split",
@@ -60,7 +60,7 @@ object UpperLowerTemplates : WorkoutPlanTemplate {
         )
     }
 
-    fun strengthFocused(): WorkoutPlan {
+    fun strengthFocused(): WorkoutPlanDraft {
         return createPlan(
             name = "Upper Lower Strength",
             description = "2 Day Heavy compound focused split",
@@ -95,8 +95,8 @@ object UpperLowerTemplates : WorkoutPlanTemplate {
         fitnessLevel: FitnessLevel? = null,
         trainingLocation: TrainingLocation? = null,
         workouts: List<Workout>
-    ): WorkoutPlan {
-        return WorkoutPlan(
+    ): WorkoutPlanDraft {
+        return WorkoutPlanDraft(
             name = name,
             description = description,
             split = WorkoutSplit.UPPER_LOWER,

@@ -6,18 +6,18 @@ import com.leet.moglog.profile.enums.TrainingLocation
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlan
+import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object FullBodyTemplates : WorkoutPlanTemplate {
-    override fun getPlans(): List<WorkoutPlan> {
+    override fun getPlans(): List<WorkoutPlanDraft> {
         return listOf(
             beginner(),
             intermediate()
         )
     }
 
-    fun beginner(): WorkoutPlan {
+    fun beginner(): WorkoutPlanDraft {
         return createPlan(
             name = "Beginner Full Body",
             description = "3 day beginner plan",
@@ -52,7 +52,7 @@ object FullBodyTemplates : WorkoutPlanTemplate {
         )
     }
 
-    fun intermediate(): WorkoutPlan {
+    fun intermediate(): WorkoutPlanDraft {
         return createPlan(
             name = "Intermediate Full Body",
             description = "4 day full body volume plan",
@@ -101,8 +101,8 @@ object FullBodyTemplates : WorkoutPlanTemplate {
         fitnessLevel: FitnessLevel? = null,
         trainingLocation: TrainingLocation? = null,
         workouts: List<Workout>
-    ): WorkoutPlan {
-        return WorkoutPlan(
+    ): WorkoutPlanDraft {
+        return WorkoutPlanDraft(
             name = name,
             description = description,
             split = WorkoutSplit.FULL_BODY,

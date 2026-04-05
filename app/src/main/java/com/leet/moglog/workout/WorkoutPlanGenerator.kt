@@ -22,7 +22,7 @@ import com.leet.moglog.workout.enums.WorkoutSplit
 class WorkoutPlanGenerator(
     private val templateRepository: WorkoutTemplateRepository
 ) {
-    fun generate(profile: TrainingProfile): WorkoutPlan {
+    fun generate(profile: TrainingProfile): WorkoutPlanDraft {
         return templateRepository
             .findMatchingTemplates(profile, calculateSplit(profile))
             .firstOrNull()
@@ -30,8 +30,8 @@ class WorkoutPlanGenerator(
     }
 
     // Prototype implementation
-    private fun generateCustomPlan(profile: TrainingProfile): WorkoutPlan {
-        return WorkoutPlan(
+    private fun generateCustomPlan(profile: TrainingProfile): WorkoutPlanDraft {
+        return WorkoutPlanDraft(
             name = "Custom Plan for ${profile.profileName}",
             description = "A custom workout plan generated based on your training profile.",
             workoutDaysPerWeek = profile.trainingFrequency,

@@ -15,12 +15,12 @@ class WorkoutTemplateRepository {
         PushPullLegsTemplates
     )
 
-    fun getAllTemplates(): List<WorkoutPlan> = sources.flatMap { it.getPlans() }
+    fun getAllTemplates(): List<WorkoutPlanDraft> = sources.flatMap { it.getPlans() }
 
     fun findMatchingTemplates(
         profile: TrainingProfile,
         split: WorkoutSplit
-    ): List<WorkoutPlan> =
+    ): List<WorkoutPlanDraft> =
         getAllTemplates().filter { plan ->
             plan.workoutDaysPerWeek == profile.trainingFrequency &&
             plan.split == split &&
