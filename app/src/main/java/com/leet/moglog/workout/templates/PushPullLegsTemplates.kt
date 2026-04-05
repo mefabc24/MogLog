@@ -10,6 +10,8 @@ import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object PushPullLegsTemplates : WorkoutPlanTemplate {
+    override val split = WorkoutSplit.PUSH_PULL_LEGS
+
     override fun getPlans(): List<WorkoutPlanDraft> {
         return listOf(
             classic(),
@@ -18,7 +20,7 @@ object PushPullLegsTemplates : WorkoutPlanTemplate {
     }
 
     fun classic(): WorkoutPlanDraft {
-        return createPlan(
+        return createPlanDraft(
             name = "Classic PPL",
             description = "6 day hypertrophy split",
             workoutDaysPerWeek = 6,
@@ -77,7 +79,7 @@ object PushPullLegsTemplates : WorkoutPlanTemplate {
     }
 
     fun advanced(): WorkoutPlanDraft {
-        return createPlan(
+        return createPlanDraft(
             name = "Advanced PPL",
             description = "High volume 6 day split",
             workoutDaysPerWeek = 6,
@@ -138,30 +140,6 @@ object PushPullLegsTemplates : WorkoutPlanTemplate {
                     )
                 )
             )
-        )
-    }
-
-    // Helper function
-    private fun createPlan(
-        name: String,
-        description: String,
-        workoutDaysPerWeek: Int,
-        trainingStyle: TrainingStyle,
-        primaryGoal: PrimaryGoal? = null,
-        fitnessLevel: FitnessLevel? = null,
-        trainingLocation: TrainingLocation? = null,
-        workouts: List<Workout>
-    ): WorkoutPlanDraft {
-        return WorkoutPlanDraft(
-            name = name,
-            description = description,
-            split = WorkoutSplit.PUSH_PULL_LEGS,
-            workoutDaysPerWeek = workoutDaysPerWeek,
-            primaryGoal = primaryGoal,
-            fitnessLevel = fitnessLevel,
-            trainingLocation = trainingLocation,
-            trainingStyle = trainingStyle,
-            workouts = workouts
         )
     }
 }

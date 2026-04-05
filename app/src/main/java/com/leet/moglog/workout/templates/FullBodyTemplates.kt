@@ -10,6 +10,8 @@ import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object FullBodyTemplates : WorkoutPlanTemplate {
+    override val split = WorkoutSplit.FULL_BODY
+
     override fun getPlans(): List<WorkoutPlanDraft> {
         return listOf(
             beginner(),
@@ -18,7 +20,7 @@ object FullBodyTemplates : WorkoutPlanTemplate {
     }
 
     fun beginner(): WorkoutPlanDraft {
-        return createPlan(
+        return createPlanDraft(
             name = "Beginner Full Body",
             description = "3 day beginner plan",
             workoutDaysPerWeek = 3,
@@ -53,7 +55,7 @@ object FullBodyTemplates : WorkoutPlanTemplate {
     }
 
     fun intermediate(): WorkoutPlanDraft {
-        return createPlan(
+        return createPlanDraft(
             name = "Intermediate Full Body",
             description = "4 day full body volume plan",
             workoutDaysPerWeek = 4,
@@ -88,30 +90,6 @@ object FullBodyTemplates : WorkoutPlanTemplate {
                     )
                 )
             )
-        )
-    }
-
-    // Helper function
-    private fun createPlan(
-        name: String,
-        description: String,
-        workoutDaysPerWeek: Int,
-        trainingStyle: TrainingStyle,
-        primaryGoal: PrimaryGoal? = null,
-        fitnessLevel: FitnessLevel? = null,
-        trainingLocation: TrainingLocation? = null,
-        workouts: List<Workout>
-    ): WorkoutPlanDraft {
-        return WorkoutPlanDraft(
-            name = name,
-            description = description,
-            split = WorkoutSplit.FULL_BODY,
-            workoutDaysPerWeek = workoutDaysPerWeek,
-            primaryGoal = primaryGoal,
-            fitnessLevel = fitnessLevel,
-            trainingLocation = trainingLocation,
-            trainingStyle = trainingStyle,
-            workouts = workouts
         )
     }
 }
