@@ -31,9 +31,5 @@ data class WorkoutPlan(
     val description: String,
     val workoutDaysPerWeek: Int,
     val split: WorkoutSplit,
-    val trainingStyle: TrainingStyle,
-    val primaryGoal: PrimaryGoal? = null,
-    val fitnessLevel: FitnessLevel? = null,
-    val trainingLocation: TrainingLocation? = null,
     val workouts: List<Workout>
 )
