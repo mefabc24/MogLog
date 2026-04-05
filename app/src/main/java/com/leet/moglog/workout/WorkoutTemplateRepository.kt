@@ -8,11 +8,11 @@ import com.leet.moglog.workout.templates.FullBodyTemplates
 import com.leet.moglog.workout.templates.PushPullLegsTemplates
 import com.leet.moglog.workout.templates.TorsoLimbTemplates
 import com.leet.moglog.workout.templates.UpperLowerTemplates
-import com.leet.moglog.workout.templates.WorkoutPlanTemplate
+import com.leet.moglog.workout.templates.WorkoutPlanProvider
 
 class WorkoutTemplateRepository {
 
-    private val sources: List<WorkoutPlanTemplate> = listOf(
+    private val sources: List<WorkoutPlanProvider> = listOf(
         FullBodyTemplates,
         UpperLowerTemplates,
         PushPullLegsTemplates,
