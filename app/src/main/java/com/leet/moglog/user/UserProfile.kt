@@ -32,5 +32,5 @@ data class UserProfile(
     val heightCm: Int,
     val gender: Gender,
 
-    val activeTrainingProfileId: UUID?
+    val activeTrainingProfileId: UUID? = null
 )
