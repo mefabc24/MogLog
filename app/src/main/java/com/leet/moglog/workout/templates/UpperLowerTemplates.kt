@@ -1,15 +1,12 @@
 package com.leet.moglog.workout.templates
 
-import com.leet.moglog.profile.enums.FitnessLevel
-import com.leet.moglog.profile.enums.PrimaryGoal
-import com.leet.moglog.profile.enums.TrainingLocation
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-object UpperLowerTemplates : WorkoutPlanTemplate {
+object UpperLowerTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.UPPER_LOWER
 
     override fun getPlans(): List<WorkoutPlanDraft> {

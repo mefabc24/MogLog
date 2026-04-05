@@ -8,7 +8,7 @@ import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-interface WorkoutPlanTemplate {
+interface WorkoutPlanProvider {
     val split: WorkoutSplit
 
     fun getPlans(): List<WorkoutPlanDraft>

@@ -6,7 +6,7 @@ import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlanDraft
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-object TorsoLimbTemplates : WorkoutPlanTemplate {
+object TorsoLimbTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.TORSO_LIMB_SPLIT
 
     override fun getPlans(): List<WorkoutPlanDraft> {
