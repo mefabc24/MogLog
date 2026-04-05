@@ -5,7 +5,7 @@ import com.leet.moglog.exercise.enums.Muscle
 import com.leet.moglog.exercise.enums.MuscleGroup
 import com.leet.moglog.exercise.enums.MuscleRegion
 import com.leet.moglog.helper.TestDataFactory
-import com.leet.moglog.infrastructure.json.TestJsonService
+import com.leet.moglog.helper.TestJsonService
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
