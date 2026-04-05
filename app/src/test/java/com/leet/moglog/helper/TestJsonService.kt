@@ -1,5 +1,6 @@
-package com.leet.moglog.infrastructure.json
+package com.leet.moglog.helper
 
+import com.leet.moglog.infrastructure.json.JsonLoader
 import java.lang.reflect.Type
 
 class TestJsonService(private val mockData: Any) : JsonLoader {
