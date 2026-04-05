@@ -60,7 +60,7 @@ class WorkoutTemplateRepositoryTest {
     private fun findAndPrintMatches(
         profile: TrainingProfile,
         split: WorkoutSplit
-    ): List<WorkoutPlanDraft> {
+    ): List<WorkoutPlanTemplate> {
         val matches = repository.findMatchingTemplates(profile, split)
 
         println("Profile: days=${profile.trainingFrequency}, style=${profile.trainingStyle}, goal=${profile.primaryGoal}, level=${profile.fitnessLevel}, location=${profile.trainingLocation}, focus=${profile.trainingFocus}")
@@ -73,7 +73,7 @@ class WorkoutTemplateRepositoryTest {
 
         matches.forEachIndexed { index, plan ->
             println("[${index + 1}] ${plan.name} | ${plan.description}")
-            println("    days=${plan.workoutDaysPerWeek}, style=${plan.trainingStyle}, workouts=${plan.workouts.size}")
+            println("    days=${plan.workoutDaysPerWeek}, styles=${plan.supportedStyles}, workouts=${plan.workouts.size}")
             plan.workouts.forEach { workout ->
                 val exercises = workout.exercises.joinToString(", ") { it.exerciseId }
                 println("    - ${workout.name}: $exercises")

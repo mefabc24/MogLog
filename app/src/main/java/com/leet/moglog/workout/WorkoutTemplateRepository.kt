@@ -21,18 +21,21 @@ class WorkoutTemplateRepository {
         ArmsTorsoLegsTemplates
     )
 
-    fun getAllTemplates(): List<WorkoutPlanDraft> = sources.flatMap { it.getPlans() }
+    fun getAllTemplates(): List<WorkoutPlanTemplate> = sources.flatMap { it.getPlans() }
 
     fun findMatchingTemplates(
         profile: TrainingProfile,
         split: WorkoutSplit
-    ): List<WorkoutPlanDraft> =
-        getAllTemplates().filter { plan ->
-            plan.workoutDaysPerWeek == profile.trainingFrequency &&
-            plan.split == split &&
-            plan.trainingStyle == profile.trainingStyle &&
-            (plan.primaryGoal == null || plan.primaryGoal == profile.primaryGoal) &&
-            (plan.fitnessLevel == null || plan.fitnessLevel == profile.fitnessLevel) &&
-            (plan.trainingLocation == null || plan.trainingLocation == profile.trainingLocation)
+    ): List<WorkoutPlanTemplate> =
+        getAllTemplates().filter { template ->
+            template.workoutDaysPerWeek == profile.trainingFrequency &&
+            template.split == split &&
+            template.supportedStyles.matches(profile.trainingStyle) &&
+            template.supportedGoals.matches(profile.primaryGoal) &&
+            template.supportedLevels.matches(profile.fitnessLevel) &&
+            template.supportedLocations.matches(profile.trainingLocation) &&
+            profile.availableEquipment.containsAll(template.requiredEquipment)
         }
 }
+
+private fun <T> Set<T>.matches(value: T): Boolean = isEmpty() || contains(value)

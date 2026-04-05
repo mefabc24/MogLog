@@ -26,6 +26,7 @@ class WorkoutPlanGenerator(
         return templateRepository
             .findMatchingTemplates(profile, calculateSplit(profile))
             .firstOrNull()
+            ?.toWorkoutPlanDraft()
             ?: generateCustomPlan(profile)
     }
 
@@ -36,10 +37,6 @@ class WorkoutPlanGenerator(
             description = "A custom workout plan generated based on your training profile.",
             workoutDaysPerWeek = profile.trainingFrequency,
             split = calculateSplit(profile),
-            trainingStyle = profile.trainingStyle,
-            primaryGoal = profile.primaryGoal,
-            fitnessLevel = profile.fitnessLevel,
-            trainingLocation = profile.trainingLocation,
             workouts = emptyList() // Placeholder, should be generated based on profile
         )
     }

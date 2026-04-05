@@ -3,13 +3,13 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object BroSplitTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.BRO_SPLIT
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             classicFiveDay(),
             volumeSixDay(),
@@ -17,12 +17,12 @@ object BroSplitTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun classicFiveDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun classicFiveDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Classic Bro Split",
             description = "5 day bodybuilding split with one major body part per session",
             workoutDaysPerWeek = 5,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Chest",
@@ -72,12 +72,12 @@ object BroSplitTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun volumeSixDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun volumeSixDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Volume Bro Split",
             description = "6 day bodybuilding split with an added delts and arms pump day",
             workoutDaysPerWeek = 6,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Chest",
@@ -137,12 +137,12 @@ object BroSplitTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun advancedSevenDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun advancedSevenDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Advanced Bro Split",
             description = "7 day advanced split with extra pump work for recovery-friendly volume",
             workoutDaysPerWeek = 7,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Chest Strength",

@@ -3,13 +3,13 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object TorsoLimbTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.TORSO_LIMB_SPLIT
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             upperFocusThreeDay(),
             standardFourDay(),
@@ -17,12 +17,12 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun upperFocusThreeDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun upperFocusThreeDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Upper Focus Torso Limb",
             description = "3 day torso limb split with extra weekly torso exposure",
             workoutDaysPerWeek = 3,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Torso A",
@@ -56,12 +56,12 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun standardFourDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun standardFourDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Standard Torso Limb",
             description = "4 day torso limb split balancing upper body and limb development",
             workoutDaysPerWeek = 4,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Torso A",
@@ -105,12 +105,12 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun balancedSixDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun balancedSixDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Balanced Torso Limb Performance",
             description = "6 day torso limb split combining compounds, accessory work and core",
             workoutDaysPerWeek = 6,
-            trainingStyle = TrainingStyle.BALANCED,
+            supportedStyles = setOf(TrainingStyle.BALANCED),
             workouts = listOf(
                 Workout(
                     name = "Torso Strength",

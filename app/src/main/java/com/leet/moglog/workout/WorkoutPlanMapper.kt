@@ -9,10 +9,16 @@ fun WorkoutPlanDraft.toWorkoutPlan(trainingProfileId: UUID): WorkoutPlan {
         description = description,
         workoutDaysPerWeek = workoutDaysPerWeek,
         split = split,
-        trainingStyle = trainingStyle,
-        primaryGoal = primaryGoal,
-        fitnessLevel = fitnessLevel,
-        trainingLocation = trainingLocation,
+        workouts = workouts
+    )
+}
+
+fun WorkoutPlanTemplate.toWorkoutPlanDraft(): WorkoutPlanDraft {
+    return WorkoutPlanDraft(
+        name = name,
+        description = description,
+        workoutDaysPerWeek = workoutDaysPerWeek,
+        split = split,
         workouts = workouts
     )
 }

@@ -3,25 +3,25 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object UpperLowerTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.UPPER_LOWER
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             standard(),
             strengthFocused()
         )
     }
 
-    fun standard(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun standard(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Upper Lower Standard",
             description = "4 day split",
             workoutDaysPerWeek = 4,
-            trainingStyle = TrainingStyle.BALANCED,
+            supportedStyles = setOf(TrainingStyle.BALANCED),
             workouts = listOf(
                 Workout(
                     name = "Upper",
@@ -59,12 +59,12 @@ object UpperLowerTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun strengthFocused(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun strengthFocused(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Upper Lower Strength",
             description = "2 Day Heavy compound focused split",
             workoutDaysPerWeek = 2,
-            trainingStyle = TrainingStyle.STRENGTH_POWER,
+            supportedStyles = setOf(TrainingStyle.STRENGTH_POWER),
             workouts = listOf(
                 Workout(
                     name = "Upper Strength",

@@ -3,25 +3,25 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object FullBodyTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.FULL_BODY
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             beginner(),
             intermediate()
         )
     }
 
-    fun beginner(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun beginner(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Beginner Full Body",
             description = "3 day beginner plan",
             workoutDaysPerWeek = 3,
-            trainingStyle = TrainingStyle.BALANCED,
+            supportedStyles = setOf(TrainingStyle.BALANCED),
             workouts = listOf(
                 Workout(
                     name = "Full Body A",
@@ -51,12 +51,12 @@ object FullBodyTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun intermediate(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun intermediate(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Intermediate Full Body",
             description = "4 day full body volume plan",
             workoutDaysPerWeek = 4,
-            trainingStyle = TrainingStyle.BALANCED,
+            supportedStyles = setOf(TrainingStyle.BALANCED),
             workouts = listOf(
                 Workout(
                     name = "Full Body Strength",

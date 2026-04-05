@@ -1,37 +1,40 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
 import com.leet.moglog.profile.enums.FitnessLevel
 import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingLocation
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 interface WorkoutPlanProvider {
     val split: WorkoutSplit
 
-    fun getPlans(): List<WorkoutPlanDraft>
+    fun getPlans(): List<WorkoutPlanTemplate>
 
-    fun createPlanDraft(
+    fun createTemplate(
         name: String,
         description: String,
         workoutDaysPerWeek: Int,
-        trainingStyle: TrainingStyle,
-        primaryGoal: PrimaryGoal? = null,
-        fitnessLevel: FitnessLevel? = null,
-        trainingLocation: TrainingLocation? = null,
+        supportedStyles: Set<TrainingStyle> = emptySet(),
+        supportedGoals: Set<PrimaryGoal> = emptySet(),
+        supportedLevels: Set<FitnessLevel> = emptySet(),
+        supportedLocations: Set<TrainingLocation> = emptySet(),
+        requiredEquipment: Set<Equipment> = emptySet(),
         workouts: List<Workout>
-    ): WorkoutPlanDraft {
-        return WorkoutPlanDraft(
+    ): WorkoutPlanTemplate {
+        return WorkoutPlanTemplate(
             name = name,
             description = description,
             split = split,
             workoutDaysPerWeek = workoutDaysPerWeek,
-            primaryGoal = primaryGoal,
-            fitnessLevel = fitnessLevel,
-            trainingLocation = trainingLocation,
-            trainingStyle = trainingStyle,
+            supportedStyles = supportedStyles,
+            supportedGoals = supportedGoals,
+            supportedLevels = supportedLevels,
+            supportedLocations = supportedLocations,
+            requiredEquipment = requiredEquipment,
             workouts = workouts
         )
     }

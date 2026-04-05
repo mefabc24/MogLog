@@ -3,13 +3,13 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.ARMS_TORSO_LEGS
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             classicThreeDay(),
             armPriorityFourDay(),
@@ -17,12 +17,12 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun classicThreeDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun classicThreeDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Classic Arms Torso Legs",
             description = "3 day hypertrophy split with a dedicated arm day",
             workoutDaysPerWeek = 3,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Arms",
@@ -57,12 +57,12 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun armPriorityFourDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun armPriorityFourDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Arm Priority Arms Torso Legs",
             description = "4 day split that repeats arms for extra weekly arm volume",
             workoutDaysPerWeek = 4,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Arms A",
@@ -106,12 +106,12 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun specializationSixDay(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun specializationSixDay(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Arms Torso Legs Specialization",
             description = "6 day specialization split rotating heavy and pump sessions",
             workoutDaysPerWeek = 6,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Arms Heavy",

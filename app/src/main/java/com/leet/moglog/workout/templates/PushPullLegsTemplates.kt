@@ -3,25 +3,25 @@ package com.leet.moglog.workout.templates
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
-import com.leet.moglog.workout.WorkoutPlanDraft
+import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object PushPullLegsTemplates : WorkoutPlanProvider {
     override val split = WorkoutSplit.PUSH_PULL_LEGS
 
-    override fun getPlans(): List<WorkoutPlanDraft> {
+    override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             classic(),
             advanced()
         )
     }
 
-    fun classic(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun classic(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Classic PPL",
             description = "6 day hypertrophy split",
             workoutDaysPerWeek = 6,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Push",
@@ -75,12 +75,12 @@ object PushPullLegsTemplates : WorkoutPlanProvider {
         )
     }
 
-    fun advanced(): WorkoutPlanDraft {
-        return createPlanDraft(
+    fun advanced(): WorkoutPlanTemplate {
+        return createTemplate(
             name = "Advanced PPL",
             description = "High volume 6 day split",
             workoutDaysPerWeek = 6,
-            trainingStyle = TrainingStyle.HYPERTROPHY,
+            supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
             workouts = listOf(
                 Workout(
                     name = "Push",
