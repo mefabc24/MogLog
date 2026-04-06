@@ -1,5 +1,8 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
@@ -7,8 +10,6 @@ import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object UpperLowerTemplates : WorkoutPlanProvider {
-    override val split = WorkoutSplit.UPPER_LOWER
-
     override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             standard(),
@@ -18,10 +19,21 @@ object UpperLowerTemplates : WorkoutPlanProvider {
 
     fun standard(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.UPPER_LOWER,
             name = "Upper Lower Standard",
             description = "4 day split",
             workoutDaysPerWeek = 4,
-            supportedStyles = setOf(TrainingStyle.BALANCED),
+            supportedStyles = setOf(TrainingStyle.BALANCED, TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(
+                PrimaryGoal.HYPERTROPHY,
+                PrimaryGoal.HEALTH,
+                PrimaryGoal.WEIGHT_LOSS
+            ),
+            supportedLevels = setOf(FitnessLevel.BEGINNER, FitnessLevel.INTERMEDIATE),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH
+            ),
             workouts = listOf(
                 Workout(
                     name = "Upper",
@@ -61,10 +73,19 @@ object UpperLowerTemplates : WorkoutPlanProvider {
 
     fun strengthFocused(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.UPPER_LOWER,
             name = "Upper Lower Strength",
             description = "2 Day Heavy compound focused split",
             workoutDaysPerWeek = 2,
             supportedStyles = setOf(TrainingStyle.STRENGTH_POWER),
+            supportedGoals = setOf(PrimaryGoal.STRENGTH),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.RACK,
+                Equipment.PULLUP_BAR
+            ),
             workouts = listOf(
                 Workout(
                     name = "Upper Strength",

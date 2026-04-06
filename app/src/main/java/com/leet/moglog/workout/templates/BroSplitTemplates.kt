@@ -1,5 +1,8 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
@@ -7,8 +10,6 @@ import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object BroSplitTemplates : WorkoutPlanProvider {
-    override val split = WorkoutSplit.BRO_SPLIT
-
     override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             classicFiveDay(),
@@ -19,10 +20,19 @@ object BroSplitTemplates : WorkoutPlanProvider {
 
     fun classicFiveDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.BRO_SPLIT,
             name = "Classic Bro Split",
             description = "5 day bodybuilding split with one major body part per session",
             workoutDaysPerWeek = 5,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.PULLUP_BAR
+            ),
             workouts = listOf(
                 Workout(
                     name = "Chest",
@@ -74,10 +84,20 @@ object BroSplitTemplates : WorkoutPlanProvider {
 
     fun volumeSixDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.BRO_SPLIT,
             name = "Volume Bro Split",
             description = "6 day bodybuilding split with an added delts and arms pump day",
             workoutDaysPerWeek = 6,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.PULLUP_BAR,
+                Equipment.MACHINE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Chest",
@@ -139,10 +159,20 @@ object BroSplitTemplates : WorkoutPlanProvider {
 
     fun advancedSevenDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.BRO_SPLIT,
             name = "Advanced Bro Split",
             description = "7 day advanced split with extra pump work for recovery-friendly volume",
             workoutDaysPerWeek = 7,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.PULLUP_BAR,
+                Equipment.MACHINE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Chest Strength",

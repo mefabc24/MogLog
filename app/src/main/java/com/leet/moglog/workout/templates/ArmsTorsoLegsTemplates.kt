@@ -1,5 +1,8 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
@@ -7,8 +10,6 @@ import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
-    override val split = WorkoutSplit.ARMS_TORSO_LEGS
-
     override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             classicThreeDay(),
@@ -19,10 +20,18 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
 
     fun classicThreeDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.ARMS_TORSO_LEGS,
             name = "Classic Arms Torso Legs",
             description = "3 day hypertrophy split with a dedicated arm day",
             workoutDaysPerWeek = 3,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Arms",
@@ -59,10 +68,19 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
 
     fun armPriorityFourDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.ARMS_TORSO_LEGS,
             name = "Arm Priority Arms Torso Legs",
             description = "4 day split that repeats arms for extra weekly arm volume",
             workoutDaysPerWeek = 4,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.MACHINE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Arms A",
@@ -108,10 +126,20 @@ object ArmsTorsoLegsTemplates : WorkoutPlanProvider {
 
     fun specializationSixDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.ARMS_TORSO_LEGS,
             name = "Arms Torso Legs Specialization",
             description = "6 day specialization split rotating heavy and pump sessions",
             workoutDaysPerWeek = 6,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.MACHINE,
+                Equipment.PULLUP_BAR
+            ),
             workouts = listOf(
                 Workout(
                     name = "Arms Heavy",

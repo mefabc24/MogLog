@@ -1,14 +1,15 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
 import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
-object TorsoLimbTemplates : WorkoutPlanProvider {
-    override val split = WorkoutSplit.TORSO_LIMB_SPLIT
-
+object TorsoLimbsTemplates : WorkoutPlanProvider {
     override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             upperFocusThreeDay(),
@@ -19,10 +20,19 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
 
     fun upperFocusThreeDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.TORSO_LIMB_SPLIT,
             name = "Upper Focus Torso Limb",
             description = "3 day torso limb split with extra weekly torso exposure",
             workoutDaysPerWeek = 3,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.PULLUP_BAR
+            ),
             workouts = listOf(
                 Workout(
                     name = "Torso A",
@@ -58,10 +68,20 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
 
     fun standardFourDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.TORSO_LIMB_SPLIT,
             name = "Standard Torso Limb",
             description = "4 day torso limb split balancing upper body and limb development",
             workoutDaysPerWeek = 4,
             supportedStyles = setOf(TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.PULLUP_BAR,
+                Equipment.MACHINE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Torso A",
@@ -107,10 +127,28 @@ object TorsoLimbTemplates : WorkoutPlanProvider {
 
     fun balancedSixDay(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.TORSO_LIMB_SPLIT,
             name = "Balanced Torso Limb Performance",
             description = "6 day torso limb split combining compounds, accessory work and core",
             workoutDaysPerWeek = 6,
-            supportedStyles = setOf(TrainingStyle.BALANCED),
+            supportedStyles = setOf(
+                TrainingStyle.BALANCED,
+                TrainingStyle.HYPERTROPHY,
+                TrainingStyle.ATHLETIC_FUNCTIONAL
+            ),
+            supportedGoals = setOf(
+                PrimaryGoal.HYPERTROPHY,
+                PrimaryGoal.ENDURANCE,
+                PrimaryGoal.HEALTH
+            ),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE, FitnessLevel.ADVANCED),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE,
+                Equipment.MACHINE,
+                Equipment.PULLUP_BAR
+            ),
             workouts = listOf(
                 Workout(
                     name = "Torso Strength",

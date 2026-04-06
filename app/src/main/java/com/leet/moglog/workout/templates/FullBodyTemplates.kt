@@ -1,5 +1,8 @@
 package com.leet.moglog.workout.templates
 
+import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.profile.enums.FitnessLevel
+import com.leet.moglog.profile.enums.PrimaryGoal
 import com.leet.moglog.profile.enums.TrainingStyle
 import com.leet.moglog.workout.Workout
 import com.leet.moglog.workout.WorkoutExercise
@@ -7,8 +10,6 @@ import com.leet.moglog.workout.WorkoutPlanTemplate
 import com.leet.moglog.workout.enums.WorkoutSplit
 
 object FullBodyTemplates : WorkoutPlanProvider {
-    override val split = WorkoutSplit.FULL_BODY
-
     override fun getPlans(): List<WorkoutPlanTemplate> {
         return listOf(
             beginner(),
@@ -18,10 +19,17 @@ object FullBodyTemplates : WorkoutPlanProvider {
 
     fun beginner(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.FULL_BODY,
             name = "Beginner Full Body",
             description = "3 day beginner plan",
             workoutDaysPerWeek = 3,
             supportedStyles = setOf(TrainingStyle.BALANCED),
+            supportedLevels = setOf(FitnessLevel.BEGINNER),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.CABLE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Full Body A",
@@ -53,10 +61,19 @@ object FullBodyTemplates : WorkoutPlanProvider {
 
     fun intermediate(): WorkoutPlanTemplate {
         return createTemplate(
+            split = WorkoutSplit.FULL_BODY,
             name = "Intermediate Full Body",
             description = "4 day full body volume plan",
             workoutDaysPerWeek = 4,
-            supportedStyles = setOf(TrainingStyle.BALANCED),
+            supportedStyles = setOf(TrainingStyle.BALANCED, TrainingStyle.HYPERTROPHY),
+            supportedGoals = setOf(PrimaryGoal.HYPERTROPHY, PrimaryGoal.HEALTH),
+            supportedLevels = setOf(FitnessLevel.INTERMEDIATE),
+            requiredEquipment = setOf(
+                Equipment.BARBELL,
+                Equipment.BENCH,
+                Equipment.DUMBBELL,
+                Equipment.MACHINE
+            ),
             workouts = listOf(
                 Workout(
                     name = "Full Body Strength",
