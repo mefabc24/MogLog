@@ -1,5 +1,6 @@
 package com.leet.moglog.profile
 
+import java.time.DayOfWeek
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
@@ -31,10 +32,13 @@ data class TrainingProfile(
     val profileName: String,
     val primaryGoal: PrimaryGoal,
     val fitnessLevel: FitnessLevel,
-    val trainingFrequency: Int,
+    val trainingDays: Set<DayOfWeek>,
     val sessionDuration: Int,
     val trainingStyle: TrainingStyle,
     val trainingLocation: TrainingLocation,
     val trainingFocus: TrainingFocus,
     val availableEquipment: List<Equipment>
-)
+) {
+    val trainingFrequency: Int
+        get() = trainingDays.size
+}
