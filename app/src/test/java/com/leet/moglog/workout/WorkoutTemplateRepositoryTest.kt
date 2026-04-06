@@ -45,6 +45,51 @@ class WorkoutTemplateRepositoryTest {
     }
 
     @Test
+    fun findMatchingTemplates_treatsEmptyGoalAndLocationSetsAsWildcard() {
+        val matches = repository.findMatchingTemplates(
+            profile(
+                trainingFrequency = 3,
+                trainingStyle = TrainingStyle.BALANCED,
+                primaryGoal = PrimaryGoal.ENDURANCE,
+                fitnessLevel = FitnessLevel.BEGINNER,
+                trainingLocation = TrainingLocation.HOME
+            ),
+            WorkoutSplit.FULL_BODY
+        )
+
+        assertTrue(matches.any { it.name == "Beginner Full Body" })
+    }
+
+    @Test
+    fun findMatchingTemplates_filtersOutTemplates_whenRequiredEquipmentIsMissing() {
+        val matches = repository.findMatchingTemplates(
+            profile(
+                trainingFrequency = 5,
+                trainingStyle = TrainingStyle.HYPERTROPHY,
+                availableEquipment = listOf(Equipment.BARBELL, Equipment.BENCH)
+            ),
+            WorkoutSplit.BRO_SPLIT
+        )
+
+        assertTrue(matches.isEmpty())
+    }
+
+    @Test
+    fun findMatchingTemplates_matchesWhenStyleIsOneOfMultipleSupportedValues() {
+        val matches = repository.findMatchingTemplates(
+            profile(
+                trainingFrequency = 6,
+                trainingStyle = TrainingStyle.HYPERTROPHY,
+                primaryGoal = PrimaryGoal.HYPERTROPHY,
+                trainingFocus = TrainingFocus.UPPER_BODY
+            ),
+            WorkoutSplit.TORSO_LIMB_SPLIT
+        )
+
+        assertTrue(matches.any { it.name == "Balanced Torso Limb Performance" })
+    }
+
+    @Test
     fun explore_findMatchingTemplates_printsMatchesToConsole() {
         findAndPrintMatches(
             profile(
@@ -89,7 +134,16 @@ class WorkoutTemplateRepositoryTest {
         primaryGoal: PrimaryGoal = PrimaryGoal.HYPERTROPHY,
         fitnessLevel: FitnessLevel = FitnessLevel.INTERMEDIATE,
         trainingFocus: TrainingFocus = TrainingFocus.BALANCED,
-        trainingLocation: TrainingLocation = TrainingLocation.GYM
+        trainingLocation: TrainingLocation = TrainingLocation.GYM,
+        availableEquipment: List<Equipment> = listOf(
+            Equipment.BARBELL,
+            Equipment.DUMBBELL,
+            Equipment.BENCH,
+            Equipment.CABLE,
+            Equipment.RACK,
+            Equipment.MACHINE,
+            Equipment.PULLUP_BAR
+        )
     ): TrainingProfile {
         return TrainingProfile(
             userId = UUID.randomUUID(),
@@ -101,12 +155,7 @@ class WorkoutTemplateRepositoryTest {
             trainingStyle = trainingStyle,
             trainingLocation = trainingLocation,
             trainingFocus = trainingFocus,
-            availableEquipment = listOf(
-                Equipment.BARBELL,
-                Equipment.DUMBBELL,
-                Equipment.BENCH,
-                Equipment.CABLE
-            )
+            availableEquipment = availableEquipment
         )
     }
 }
