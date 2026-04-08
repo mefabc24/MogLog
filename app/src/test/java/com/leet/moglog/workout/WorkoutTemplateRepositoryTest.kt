@@ -11,6 +11,7 @@ import com.leet.moglog.workout.enums.WorkoutSplit
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import java.time.DayOfWeek
 import java.util.UUID
 
 class WorkoutTemplateRepositoryTest {
@@ -150,7 +151,7 @@ class WorkoutTemplateRepositoryTest {
             profileName = "Template Repository Test Profile",
             primaryGoal = primaryGoal,
             fitnessLevel = fitnessLevel,
-            trainingFrequency = trainingFrequency,
+            trainingDays = DayOfWeek.values().take(trainingFrequency).toSet(),
             sessionDuration = 75,
             trainingStyle = trainingStyle,
             trainingLocation = trainingLocation,
