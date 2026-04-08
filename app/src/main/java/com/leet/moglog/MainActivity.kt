@@ -23,6 +23,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.leet.moglog.infrastructure.ai.AiService
@@ -53,9 +54,61 @@ fun AiTestScreen(modifier: Modifier = Modifier) {
     var errorText by rememberSaveable { mutableStateOf<String?>(null) }
     var isLoading by remember { mutableStateOf(false) }
 
-    val aiService = remember { AiService() }
+    val isInPreview = LocalInspectionMode.current
+    val sendMessage = remember(isInPreview) {
+        if (isInPreview) {
+            suspend { _: String -> "Preview-Antwort der AI" }
+        } else {
+            val aiService = AiService()
+            suspend { message: String -> aiService.sendMessage(message) }
+        }
+    }
     val coroutineScope = rememberCoroutineScope()
 
+    AiTestScreenContent(
+        modifier = modifier,
+        inputText = inputText,
+        responseText = responseText,
+        errorText = errorText,
+        isLoading = isLoading,
+        onInputChange = { inputText = it },
+        onSubmit = {
+            if (inputText.isBlank()) {
+                errorText = "Bitte gib eine Nachricht ein."
+                return@AiTestScreenContent
+            }
+
+            coroutineScope.launch {
+                isLoading = true
+                errorText = null
+
+                try {
+                    val response = withContext(Dispatchers.IO) {
+                        sendMessage(inputText)
+                    }
+                    responseText = response
+                    Log.d("MainActivity", "AI Response: $response")
+                } catch (e: Exception) {
+                    errorText = e.message ?: "Unbekannter Fehler"
+                    Log.e("MainActivity", "AI Anfrage fehlgeschlagen", e)
+                } finally {
+                    isLoading = false
+                }
+            }
+        }
+    )
+}
+
+@Composable
+private fun AiTestScreenContent(
+    modifier: Modifier = Modifier,
+    inputText: String,
+    responseText: String,
+    errorText: String?,
+    isLoading: Boolean,
+    onInputChange: (String) -> Unit,
+    onSubmit: () -> Unit
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -64,37 +117,14 @@ fun AiTestScreen(modifier: Modifier = Modifier) {
     ) {
         OutlinedTextField(
             value = inputText,
-            onValueChange = { inputText = it },
+            onValueChange = onInputChange,
             label = { Text("Nachricht") },
             modifier = Modifier.fillMaxWidth(),
             enabled = !isLoading
         )
 
         Button(
-            onClick = {
-                if (inputText.isBlank()) {
-                    errorText = "Bitte gib eine Nachricht ein."
-                    return@Button
-                }
-
-                coroutineScope.launch {
-                    isLoading = true
-                    errorText = null
-
-                    try {
-                        val response = withContext(Dispatchers.IO) {
-                            aiService.sendMessage(inputText)
-                        }
-                        responseText = response
-                        Log.d("MainActivity", "AI Response: $response")
-                    } catch (e: Exception) {
-                        errorText = e.message ?: "Unbekannter Fehler"
-                        Log.e("MainActivity", "AI Anfrage fehlgeschlagen", e)
-                    } finally {
-                        isLoading = false
-                    }
-                }
-            },
+            onClick = onSubmit,
             enabled = !isLoading,
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -117,6 +147,13 @@ fun AiTestScreen(modifier: Modifier = Modifier) {
 @Composable
 fun AiTestScreenPreview() {
     MogLogTheme {
-        AiTestScreen()
+        AiTestScreenContent(
+            inputText = "Wie oft soll ich trainieren?",
+            responseText = "3 bis 4 Einheiten pro Woche sind fuer viele ein guter Start.",
+            errorText = null,
+            isLoading = false,
+            onInputChange = {},
+            onSubmit = {}
+        )
     }
 }
