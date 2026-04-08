@@ -14,6 +14,7 @@ import com.leet.moglog.user.enums.Gender
 import com.leet.moglog.workout.WorkoutPlanGenerator
 import com.leet.moglog.workout.WorkoutPlanRepository
 import com.leet.moglog.workout.toWorkoutPlan
+import java.time.DayOfWeek
 import java.util.UUID
 
 class OnboardingService(
@@ -43,7 +44,7 @@ class OnboardingService(
         profileName: String,
         primaryGoal: PrimaryGoal,
         fitnessLevel: FitnessLevel,
-        trainingFrequency: Int,
+        trainingDays: Set<DayOfWeek>,
         sessionDuration: Int,
         trainingStyle: TrainingStyle,
         trainingLocation: TrainingLocation,
@@ -58,7 +59,7 @@ class OnboardingService(
             profileName,
             primaryGoal,
             fitnessLevel,
-            trainingFrequency,
+            trainingDays,
             sessionDuration,
             trainingStyle,
             trainingLocation,
@@ -82,7 +83,7 @@ class OnboardingService(
         profileName: String,
         primaryGoal: PrimaryGoal,
         fitnessLevel: FitnessLevel,
-        trainingFrequency: Int,
+        trainingDays: Set<DayOfWeek>,
         sessionDuration: Int,
         trainingStyle: TrainingStyle,
         trainingLocation: TrainingLocation,
@@ -94,7 +95,7 @@ class OnboardingService(
             profileName = profileName,
             primaryGoal = primaryGoal,
             fitnessLevel = fitnessLevel,
-            trainingFrequency = trainingFrequency,
+            trainingDays = trainingDays,
             sessionDuration = sessionDuration,
             trainingStyle = trainingStyle,
             trainingLocation = trainingLocation,
