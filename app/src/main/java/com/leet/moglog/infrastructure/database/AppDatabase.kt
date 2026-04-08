@@ -6,8 +6,8 @@ import androidx.room.TypeConverters
 import com.leet.moglog.profile.TrainingProfile
 import com.leet.moglog.profile.TrainingProfileDao
 import com.leet.moglog.infrastructure.database.converter.CommonConverters
+import com.leet.moglog.infrastructure.database.converter.CollectionConverters
 import com.leet.moglog.infrastructure.database.converter.EnumConverters
-import com.leet.moglog.infrastructure.database.converter.ListConverters
 import com.leet.moglog.user.UserPreferences
 import com.leet.moglog.user.UserPreferencesDao
 import com.leet.moglog.user.UserProfile
@@ -27,7 +27,7 @@ import com.leet.moglog.workout.WorkoutPlanDao
 
 @TypeConverters(
     EnumConverters::class,
-    ListConverters::class,
+    CollectionConverters::class,
     CommonConverters::class
 )
 
