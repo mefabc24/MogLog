@@ -1,0 +1,411 @@
+[
+  {
+    "id": "barbell_bench_press",
+    "name": "Barbell Bench Press",
+    "description": "Classic compound chest exercise performed on a flat bench.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "PECTORALIS_MAJOR_STERNAL", "effectivenessLevel": "HIGH" },
+      { "muscle": "PECTORALIS_MAJOR_CLAVICULAR", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "TRICEPS_LONG_HEAD", "effectivenessLevel": "LOW" },
+      { "muscle": "ANTERIOR_DELTOID", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL", "BENCH"]
+  },
+  {
+    "id": "incline_dumbbell_press",
+    "name": "Incline Dumbbell Press",
+    "description": "Upper chest focused pressing movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "PECTORALIS_MAJOR_CLAVICULAR", "effectivenessLevel": "HIGH" },
+      { "muscle": "PECTORALIS_MAJOR_STERNAL", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "ANTERIOR_DELTOID", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["DUMBBELL", "BENCH"]
+  },
+  {
+    "id": "push_up",
+    "name": "Push Up",
+    "description": "Bodyweight chest and triceps exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "PECTORALIS_MAJOR_STERNAL", "effectivenessLevel": "HIGH" },
+      { "muscle": "TRICEPS_LATERAL_HEAD", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "ANTERIOR_DELTOID", "effectivenessLevel": "LOW" },
+      { "muscle": "RECTUS_ABDOMINIS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  },
+  {
+    "id": "barbell_squat",
+    "name": "Barbell Squat",
+    "description": "Heavy lower body compound lift.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RECTUS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "VASTUS_LATERALIS", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "ERECTOR_SPINAE", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL", "RACK"]
+  },
+  {
+    "id": "leg_press",
+    "name": "Leg Press",
+    "description": "Machine-based quad dominant leg exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RECTUS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "VASTUS_MEDIALIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["MACHINE"]
+  },
+  {
+    "id": "romanian_deadlift",
+    "name": "Romanian Deadlift",
+    "description": "Posterior chain focused hip hinge movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "BICEPS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "ERECTOR_SPINAE", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL"]
+  },
+  {
+    "id": "deadlift",
+    "name": "Deadlift",
+    "description": "Full posterior chain compound lift.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "BICEPS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "ERECTOR_SPINAE", "effectivenessLevel": "HIGH" },
+      { "muscle": "UPPER_TRAPEZIUS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "ADVANCED",
+    "equipment": ["BARBELL"]
+  },
+  {
+    "id": "pull_up",
+    "name": "Pull Up",
+    "description": "Bodyweight vertical pulling exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "LATISSIMUS_DORSI", "effectivenessLevel": "HIGH" },
+      { "muscle": "TERES_MAJOR", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "BICEPS_LONG_HEAD", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["PULLUP_BAR"]
+  },
+  {
+    "id": "lat_pulldown",
+    "name": "Lat Pulldown",
+    "description": "Machine variation of vertical pulling.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "LATISSIMUS_DORSI", "effectivenessLevel": "HIGH" },
+      { "muscle": "BICEPS_LONG_HEAD", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "RHOMBOID_MAJOR", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["CABLE"]
+  },
+  {
+    "id": "barbell_row",
+    "name": "Barbell Row",
+    "description": "Horizontal pulling compound lift.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "LATISSIMUS_DORSI", "effectivenessLevel": "HIGH" },
+      { "muscle": "RHOMBOID_MAJOR", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "POSTERIOR_DELTOID", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL"]
+  },
+  {
+    "id": "seated_cable_row",
+    "name": "Seated Cable Row",
+    "description": "Controlled rowing movement for the upper back.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RHOMBOID_MAJOR", "effectivenessLevel": "HIGH" },
+      { "muscle": "LATISSIMUS_DORSI", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "MIDDLE_TRAPEZIUS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["CABLE"]
+  },
+  {
+    "id": "overhead_press",
+    "name": "Overhead Press",
+    "description": "Vertical shoulder pressing exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "ANTERIOR_DELTOID", "effectivenessLevel": "HIGH" },
+      { "muscle": "LATERAL_DELTOID", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "TRICEPS_LONG_HEAD", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL"]
+  },
+  {
+    "id": "lateral_raise",
+    "name": "Lateral Raise",
+    "description": "Isolation exercise for the side delts.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "LATERAL_DELTOID", "effectivenessLevel": "HIGH" },
+      { "muscle": "ANTERIOR_DELTOID", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["DUMBBELL"]
+  },
+  {
+    "id": "rear_delt_fly",
+    "name": "Rear Delt Fly",
+    "description": "Isolation movement for rear shoulders.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "POSTERIOR_DELTOID", "effectivenessLevel": "HIGH" },
+      { "muscle": "RHOMBOID_MINOR", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["DUMBBELL"]
+  },
+  {
+    "id": "hammer_curl",
+    "name": "Hammer Curl",
+    "description": "Neutral grip curl focusing brachialis and forearm.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "BRACHIALIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "BRACHIORADIALIS", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "BICEPS_LONG_HEAD", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["DUMBBELL"]
+  },
+  {
+    "id": "barbell_curl",
+    "name": "Barbell Curl",
+    "description": "Classic biceps isolation movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "BICEPS_LONG_HEAD", "effectivenessLevel": "HIGH" },
+      { "muscle": "BICEPS_SHORT_HEAD", "effectivenessLevel": "HIGH" },
+      { "muscle": "BRACHIALIS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BARBELL"]
+  },
+  {
+    "id": "triceps_pushdown",
+    "name": "Triceps Pushdown",
+    "description": "Cable triceps isolation movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "TRICEPS_LATERAL_HEAD", "effectivenessLevel": "HIGH" },
+      { "muscle": "TRICEPS_MEDIAL_HEAD", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["CABLE"]
+  },
+  {
+    "id": "skull_crusher",
+    "name": "Skull Crusher",
+    "description": "Overhead triceps extension on bench.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "TRICEPS_LONG_HEAD", "effectivenessLevel": "HIGH" },
+      { "muscle": "TRICEPS_LATERAL_HEAD", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["EZ_BAR", "BENCH"]
+  },
+  {
+    "id": "walking_lunge",
+    "name": "Walking Lunge",
+    "description": "Unilateral lower body movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RECTUS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "VASTUS_MEDIALIS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["DUMBBELL"]
+  },
+  {
+    "id": "leg_extension",
+    "name": "Leg Extension",
+    "description": "Isolation machine for quads.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RECTUS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "VASTUS_LATERALIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "VASTUS_MEDIALIS", "effectivenessLevel": "HIGH" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["MACHINE"]
+  },
+  {
+    "id": "leg_curl",
+    "name": "Leg Curl",
+    "description": "Isolation machine for hamstrings.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "BICEPS_FEMORIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "SEMITENDINOSUS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["MACHINE"]
+  },
+  {
+    "id": "calf_raise",
+    "name": "Calf Raise",
+    "description": "Standing calf isolation exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "GASTROCNEMIUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "SOLEUS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  },
+  {
+    "id": "seated_calf_raise",
+    "name": "Seated Calf Raise",
+    "description": "Calf movement emphasizing soleus.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "SOLEUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "GASTROCNEMIUS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["MACHINE"]
+  },
+  {
+    "id": "crunch",
+    "name": "Crunch",
+    "description": "Basic abdominal flexion movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "RECTUS_ABDOMINIS", "effectivenessLevel": "HIGH" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  },
+  {
+    "id": "plank",
+    "name": "Plank",
+    "description": "Core stabilization exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "TRANSVERSUS_ABDOMINIS", "effectivenessLevel": "HIGH" },
+      { "muscle": "RECTUS_ABDOMINIS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  },
+  {
+    "id": "russian_twist",
+    "name": "Russian Twist",
+    "description": "Rotational core exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "EXTERNAL_OBLIQUES", "effectivenessLevel": "HIGH" },
+      { "muscle": "INTERNAL_OBLIQUES", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  },
+  {
+    "id": "hip_thrust",
+    "name": "Hip Thrust",
+    "description": "Glute focused hip extension exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "HIGH" },
+      { "muscle": "BICEPS_FEMORIS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "INTERMEDIATE",
+    "equipment": ["BARBELL", "BENCH"]
+  },
+  {
+    "id": "face_pull",
+    "name": "Face Pull",
+    "description": "Upper back and rear delt cable movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "POSTERIOR_DELTOID", "effectivenessLevel": "HIGH" },
+      { "muscle": "RHOMBOID_MAJOR", "effectivenessLevel": "MEDIUM" },
+      { "muscle": "MIDDLE_TRAPEZIUS", "effectivenessLevel": "MEDIUM" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["CABLE"]
+  },
+  {
+    "id": "shrug",
+    "name": "Shrug",
+    "description": "Trap isolation movement.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "UPPER_TRAPEZIUS", "effectivenessLevel": "HIGH" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["DUMBBELL"]
+  },
+  {
+    "id": "hyperextension",
+    "name": "Hyperextension",
+    "description": "Lower back focused extension exercise.",
+    "imageUrl": null,
+    "videoUrl": null,
+    "muscleTarget": [
+      { "muscle": "ERECTOR_SPINAE", "effectivenessLevel": "HIGH" },
+      { "muscle": "GLUTEUS_MAXIMUS", "effectivenessLevel": "LOW" }
+    ],
+    "difficulty": "BEGINNER",
+    "equipment": ["BODYWEIGHT"]
+  }
+]
