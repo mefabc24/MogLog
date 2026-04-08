@@ -22,7 +22,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.ANTERIOR_DELTOID, EffectivenessLevel.LOW)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.BARBELL, Equipment.BENCH)
+                equipment = setOf(Equipment.BARBELL, Equipment.BENCH)
             ),
             Exercise(
                 id = "incline_press",
@@ -35,7 +35,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.ANTERIOR_DELTOID, EffectivenessLevel.MEDIUM)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.DUMBBELL, Equipment.BENCH)
+                equipment = setOf(Equipment.DUMBBELL, Equipment.BENCH)
             ),
             Exercise(
                 id = "push_up",
@@ -48,7 +48,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.TRICEPS_LATERAL_HEAD, EffectivenessLevel.MEDIUM)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.BODYWEIGHT)
+                equipment = setOf(Equipment.BODYWEIGHT)
             ),
             Exercise(
                 id = "squat",
@@ -61,7 +61,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.GLUTEUS_MAXIMUS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.BARBELL, Equipment.RACK)
+                equipment = setOf(Equipment.BARBELL, Equipment.RACK)
             ),
             Exercise(
                 id = "deadlift",
@@ -74,7 +74,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.ERECTOR_SPINAE, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.ADVANCED,
-                equipment = listOf(Equipment.BARBELL)
+                equipment = setOf(Equipment.BARBELL)
             ),
             Exercise(
                 id = "pull_up",
@@ -87,7 +87,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.BICEPS_LONG_HEAD, EffectivenessLevel.MEDIUM)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.PULLUP_BAR)
+                equipment = setOf(Equipment.PULLUP_BAR)
             ),
             Exercise(
                 id = "lat_pulldown",
@@ -99,7 +99,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.LATISSIMUS_DORSI, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.CABLE)
+                equipment = setOf(Equipment.CABLE)
             ),
             Exercise(
                 id = "barbell_row",
@@ -112,7 +112,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.RHOMBOID_MAJOR, EffectivenessLevel.MEDIUM)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.BARBELL)
+                equipment = setOf(Equipment.BARBELL)
             ),
             Exercise(
                 id = "overhead_press",
@@ -124,7 +124,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.ANTERIOR_DELTOID, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.BARBELL)
+                equipment = setOf(Equipment.BARBELL)
             ),
             Exercise(
                 id = "lateral_raise",
@@ -136,7 +136,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.LATERAL_DELTOID, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.DUMBBELL)
+                equipment = setOf(Equipment.DUMBBELL)
             ),
             Exercise(
                 id = "rear_delt_fly",
@@ -148,7 +148,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.POSTERIOR_DELTOID, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.DUMBBELL)
+                equipment = setOf(Equipment.DUMBBELL)
             ),
             Exercise(
                 id = "barbell_curl",
@@ -160,7 +160,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.BICEPS_LONG_HEAD, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.BARBELL)
+                equipment = setOf(Equipment.BARBELL)
             ),
             Exercise(
                 id = "hammer_curl",
@@ -172,7 +172,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.BRACHIALIS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.DUMBBELL)
+                equipment = setOf(Equipment.DUMBBELL)
             ),
             Exercise(
                 id = "triceps_pushdown",
@@ -184,7 +184,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.TRICEPS_LATERAL_HEAD, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.CABLE)
+                equipment = setOf(Equipment.CABLE)
             ),
             Exercise(
                 id = "walking_lunge",
@@ -197,7 +197,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.GLUTEUS_MAXIMUS, EffectivenessLevel.MEDIUM)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.DUMBBELL)
+                equipment = setOf(Equipment.DUMBBELL)
             ),
             Exercise(
                 id = "calf_raise",
@@ -209,7 +209,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.GASTROCNEMIUS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.BODYWEIGHT)
+                equipment = setOf(Equipment.BODYWEIGHT)
             ),
             Exercise(
                 id = "crunch",
@@ -221,7 +221,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.RECTUS_ABDOMINIS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.BODYWEIGHT)
+                equipment = setOf(Equipment.BODYWEIGHT)
             ),
             Exercise(
                 id = "plank",
@@ -233,7 +233,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.TRANSVERSUS_ABDOMINIS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.BODYWEIGHT)
+                equipment = setOf(Equipment.BODYWEIGHT)
             ),
             Exercise(
                 id = "face_pull",
@@ -245,7 +245,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.POSTERIOR_DELTOID, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.BEGINNER,
-                equipment = listOf(Equipment.CABLE)
+                equipment = setOf(Equipment.CABLE)
             ),
             Exercise(
                 id = "hip_thrust",
@@ -257,7 +257,7 @@ object TestDataFactory {
                     MuscleTarget(Muscle.GLUTEUS_MAXIMUS, EffectivenessLevel.HIGH)
                 ),
                 difficulty = Difficulty.INTERMEDIATE,
-                equipment = listOf(Equipment.BARBELL, Equipment.BENCH)
+                equipment = setOf(Equipment.BARBELL, Equipment.BENCH)
             )
         )
     }

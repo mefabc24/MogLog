@@ -7,6 +7,5 @@ enum class MuscleRegion {
     BACK,
     CHEST,
     SHOULDERS,
-    CORE,
-    FULL_BODY
+    CORE
 }

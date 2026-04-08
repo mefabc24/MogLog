@@ -11,8 +11,11 @@ data class Exercise(
     val videoUrl: String?,
     val muscleTarget: List<MuscleTarget>,
     val difficulty: Difficulty,
-    val equipment: List<Equipment>
-)
-
-
-
+    val equipment: Set<Equipment>
+) {
+    init {
+        require(muscleTarget.map(MuscleTarget::muscle).distinct().size == muscleTarget.size) {
+            "Exercise '$id' contains duplicate muscle targets."
+        }
+    }
+}
