@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.workout.ScheduledWorkout
 import com.leet.moglog.workout.Workout
 import java.time.DayOfWeek
 
@@ -35,6 +36,20 @@ class CollectionConverters {
         if (value.isNullOrBlank()) return emptyList()
 
         val type = object : TypeToken<List<Workout>>() {}.type
+        return gson.fromJson(value, type)
+    }
+
+    // Converter for List<ScheduledWorkout>
+    @TypeConverter
+    fun fromScheduledWorkoutList(list: List<ScheduledWorkout>?): String? {
+        return gson.toJson(list)
+    }
+
+    @TypeConverter
+    fun toScheduledWorkoutList(value: String?): List<ScheduledWorkout> {
+        if (value.isNullOrBlank()) return emptyList()
+
+        val type = object : TypeToken<List<ScheduledWorkout>>() {}.type
         return gson.fromJson(value, type)
     }
 

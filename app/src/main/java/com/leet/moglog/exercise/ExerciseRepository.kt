@@ -11,13 +11,14 @@ private const val EXERCISE_DATA_FILE: String = "exercises.json"
 
 class ExerciseRepository(private val jsonLoader: JsonLoader) {
 
-    // Cached exercises
+    // ========== Cached exercises ==========
     val exercises: List<Exercise> by lazy {
         val type = object : TypeToken<List<Exercise>>() {}.type
         jsonLoader.loadFromAssets(EXERCISE_DATA_FILE, type)
     }
 
-    // Basic query operations
+    // ========== Basic query operations ==========
+
     fun getExercisesByMuscleRegion(muscleRegion: MuscleRegion): List<Exercise> {
         return exercises.filter { exercise ->
             exercise.muscleTarget.any { it.muscle.group.region == muscleRegion }
