@@ -212,7 +212,7 @@ private fun ChatHeader(onClose: () -> Unit) {
                 color = PrototypeColors.TextPrimary
             )
             Text(
-                text = "Mehrere Fragen nacheinander. Der Verlauf bleibt offen.",
+                text = "Your chat history stays in this conversation.",
                 style = MaterialTheme.typography.bodyMedium,
                 color = PrototypeColors.TextSecondary
             )
@@ -314,7 +314,7 @@ private fun ChatComposer(
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         if (isSending) {
             Text(
-                text = "Antwort wird geholt...",
+                text = "Getting response...",
                 style = MaterialTheme.typography.bodySmall,
                 color = PrototypeColors.TextSecondary
             )
@@ -364,7 +364,7 @@ private fun ChatComposer(
                         decorationBox = { innerTextField ->
                             if (draft.isBlank()) {
                                 Text(
-                                    text = "Frag nach Training...",
+                                    text = "Ask about training...",
                                     style = MaterialTheme.typography.bodyLarge,
                                     color = PrototypeColors.TextSecondary
                                 )

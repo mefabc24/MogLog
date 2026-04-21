@@ -67,7 +67,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
         if (isChatOpen && chatMessages.isEmpty()) {
             appendMessage(
                 author = ChatAuthor.Assistant,
-                text = "Frag mich etwas zu Training, Recovery oder Ernaehrung. Ich merke mir den bisherigen Verlauf in diesem Chat.",
+                text = "Ask me about training, recovery, or nutrition. I keep the chat history in this conversation.",
                 includeInContext = false
             )
         }
@@ -99,7 +99,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 if (isInPreview) {
                     delay(450)
                     AiChatResult(
-                        message = "Preview-Antwort: Fuer Muskelaufbau sind progressive Ueberlastung, genug Schlaf und konstante Kalorienzufuhr entscheidend.",
+                        message = "Preview reply: For muscle growth, progressive overload, enough sleep, and consistent calorie intake matter most.",
                         isError = false
                     )
                 } else {
@@ -109,7 +109,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 }
             } catch (exception: Exception) {
                 AiChatResult(
-                    message = "Fallback: ${exception.message ?: "Unbekannter Fehler"}",
+                    message = "Fallback: ${exception.message ?: "Unknown error"}",
                     isError = true
                 )
             }
@@ -175,4 +175,3 @@ private fun MainScreenPreview() {
         MainScreen()
     }
 }
-

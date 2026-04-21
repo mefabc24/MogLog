@@ -150,7 +150,7 @@ fun PrototypePageScreen(
                 shape = RoundedCornerShape(2.dp)
             ) {
                 Text(
-                    text = "NEXT ->",
+                    text = "NEXT",
                     style = MaterialTheme.typography.labelLarge.copy(
                         fontWeight = FontWeight.Bold,
                         letterSpacing = 2.sp
