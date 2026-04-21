@@ -41,6 +41,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -95,30 +96,38 @@ fun AiChatOverlay(
         }
     }
 
-    AnimatedVisibility(
-        visible = visible,
-        enter = fadeIn(tween(220)) + slideInVertically(
-            initialOffsetY = { it / 6 },
-            animationSpec = tween(360, easing = FastOutSlowInEasing)
-        ),
-        exit = fadeOut(tween(180)),
-        label = "chatOverlay"
-    ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize()) {
+        AnimatedVisibility(
+            visible = visible,
+            enter = fadeIn(tween(220)),
+            exit = fadeOut(tween(180)),
+            label = "chatScrim"
+        ) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(PrototypeColors.Scrim)
                     .clickable(onClick = onClose)
             )
+        }
 
+        AnimatedVisibility(
+            visible = visible,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .imePadding()
+                .padding(start = 12.dp, top = 12.dp, end = 12.dp, bottom = 12.dp),
+            enter = fadeIn(tween(220)) + slideInVertically(
+                initialOffsetY = { it / 6 },
+                animationSpec = tween(360, easing = FastOutSlowInEasing)
+            ),
+            exit = fadeOut(tween(180)),
+            label = "chatOverlay"
+        ) {
             Box(
                 modifier = Modifier
-                    .align(Alignment.BottomCenter)
                     .fillMaxWidth()
-                    .statusBarsPadding()
-                    .imePadding()
-                    .padding(horizontal = 12.dp, vertical = 12.dp)
             ) {
                 BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
                     val panelHeight = maxHeight.coerceIn(400.dp, 540.dp)
@@ -345,6 +354,7 @@ private fun ChatComposer(
                         value = draft,
                         onValueChange = onDraftChange,
                         enabled = !isSending,
+                        cursorBrush = SolidColor(PrototypeColors.TextPrimary),
                         textStyle = MaterialTheme.typography.bodyLarge.copy(
                             color = PrototypeColors.TextPrimary
                         ),
