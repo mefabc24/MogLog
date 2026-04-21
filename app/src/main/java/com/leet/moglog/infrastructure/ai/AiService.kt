@@ -53,7 +53,7 @@ class AiService {
     fun sendMessages(messages: List<AiChatMessage>): AiChatResult {
         if (apiKey.isBlank()) {
             return AiChatResult(
-                message = "Kein AI API Key hinterlegt. Bitte trage `AI_API_KEY` in `local.properties` ein.",
+                message = "API Key missing. Please set your API key in the app's local properties.",
                 isError = true
             )
         }
