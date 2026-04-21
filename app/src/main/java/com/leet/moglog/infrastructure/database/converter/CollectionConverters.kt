@@ -1,13 +1,14 @@
 package com.leet.moglog.infrastructure.database.converter
 
-import androidx.core.view.WindowInsetsCompat
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.leet.moglog.common.enums.Equipment
+import com.leet.moglog.workout.ScheduledWorkout
 import com.leet.moglog.workout.Workout
+import java.time.DayOfWeek
 
-class ListConverters {
+class CollectionConverters {
     private val gson = Gson()
 
     // Converter for List<Equipment>
@@ -38,4 +39,31 @@ class ListConverters {
         return gson.fromJson(value, type)
     }
 
+    // Converter for List<ScheduledWorkout>
+    @TypeConverter
+    fun fromScheduledWorkoutList(list: List<ScheduledWorkout>?): String? {
+        return gson.toJson(list)
+    }
+
+    @TypeConverter
+    fun toScheduledWorkoutList(value: String?): List<ScheduledWorkout> {
+        if (value.isNullOrBlank()) return emptyList()
+
+        val type = object : TypeToken<List<ScheduledWorkout>>() {}.type
+        return gson.fromJson(value, type)
+    }
+
+    // Converter for Set<DayOfWeek>
+    @TypeConverter
+    fun fromDayOfWeekSet(days: Set<DayOfWeek>?): String? {
+        return gson.toJson(days)
+    }
+
+    @TypeConverter
+    fun toDayOfWeekSet(value: String?): Set<DayOfWeek> {
+        if (value.isNullOrBlank()) return emptySet()
+
+        val type = object : TypeToken<Set<DayOfWeek>>() {}.type
+        return gson.fromJson(value, type)
+    }
 }
